@@ -1,0 +1,68 @@
+.cantainer{
+  background-color: whitesmoke; 
+ 
+}
+.Fname,.Lname,.email,.mobile,.gender,.birth,.street,.city,.state,.zip,.country,.college,.passOut,.degree,.skills,.Url,.about{
+  color:gray;
+  font-weight: 500;
+}
+.Male,.Female,.other{
+  color: black;
+  font-weight:400;
+}
+.submit{
+  height: 45px;
+  width: 130px;
+  margin-left:85%;
+}
+.Card{
+  margin-left: 29%;
+  background-color:white;
+  border-radius: 10px;
+  padding: 30px;
+  margin-top: 20px;
+  width: 650px;
+}
+.personalinformation,.Educationdetails,.AddressDetalis{
+  font-size:x-large;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.Edit{
+  height: 45px;
+  width: 130px;
+  margin-left: 51%;
+ 
+}
+.confirm{
+  height: 45px;
+  width: 130px;
+  
+}
+.bg{
+  background-color: whitesmoke;
+}
+.box{
+  margin-left: -50px;
+  margin-right: -190px;
+}
+.text{
+  color: black;
+  font-weight: 380;
+}
+.bg1{
+  background-color:whitesmoke;
+}
+h4{
+  font-size:x-large;
+
+}
+h6{
+  font-size: x-large
+}
+h3{
+  font-size: x-large;
+}
