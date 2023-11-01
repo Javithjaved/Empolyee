@@ -30,7 +30,7 @@ const Personal = (props) => {
                         <hr className="hr ms-4 me-4"></hr>
                         <div className="col personal rounded-top-4 p-3 ms-3 me-3 mt-4 pb-0">
                             <div className="row"><h5 className="header1  ">Personal Information</h5></div>
-                            <hr className="hr"></hr>
+                            
                             <div className="row">
                                 <div className="col-4">
                                     <label className='label' for='FirstName'>First Name : </label>

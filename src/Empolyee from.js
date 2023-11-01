@@ -5,7 +5,6 @@ import Address from './Address';
 import Education from './Education';
 import Sidebar from './Sidebar';
 import Header from './Header';
-
 const Component = () => {
   const [show, setShow] = useState(true)
   const [firstName, setFirstName] = useState();

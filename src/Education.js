@@ -66,9 +66,9 @@ const Education = (props) => {
                                     <textarea className="form-control mt-2" value={props.about} onChange={handleChangeAbout} onKeyDown={(e) => ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"].includes(e.key) && e.preventDefault()} id="About" placeholder='Intro about Yourself' name='About ' required></textarea>
                                 </div>
                             </div>
-                            <div className='hr'>
+                           
                                 <hr></hr>
-                            </div>
+                        
                             <div className="button text-end">
                                 <div className="col-12">
                                     <button type="button " value={props.show} onClick={() => props.setShow(!props.show)} className="btn btn-danger submit ">Submit</button>

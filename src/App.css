@@ -90,9 +90,62 @@ input::-webkit-inner-spin-button {
 }
 .background
 {
+ background-image: url(./Image/back.jpg);
   background-position: center !important;
   background-size: cover !important;
   height: 100vh !important;
-  width: 100vw !important;
+  width: 100vw !important; 
+  overflow: hidden;
 }
+.empolyee{
+  color: white;
+  
+}
+.loginbox{
+  background-color:rgb(249, 249, 249);
+  border-radius: 10px;
 
+}
+.label1{
+  text-decoration: none;
+  color: black;
+}
+.btn1{
+  height: 50px;
+  width:100%;
+}
+.text2{
+  text-decoration: none;
+  color: red;
+  font-weight: 450;
+  font-size:medium;
+}
+.cname{
+  color: white;
+  font-weight: 500;
+  font-size: medium;
+}
+.logoimg2{
+  margin-top: 30px;
+}
+.red{
+  color: red;
+}
+.companyname{
+  color:black ;
+  font-weight: 500;
+  font-size: medium;
+}
+.text3{
+  color: white;
+  font-size:xx-large;
+  font-weight:600;
+}
+.text4{
+  margin-top: 190px;
+}
+.hr{
+  color: white;
+  margin-left: 46%;
+  border-top: 2px solid gray;
+}
