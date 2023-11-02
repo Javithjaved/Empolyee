@@ -35,7 +35,7 @@ const Education = (props) => {
                                 </div>
                                 <div className="col-3">
                                     <label className="label " for='Passout'>Pass out :</label>
-                                    <select value={props.passout} onChange={handleChangepassout} id="Passout" className="form-control mt-2" required >
+                                    <select value={props.passout} onChange={handleChangepassout} id="Passout" className="form-control mt-2" name="passout" required >
                                         {passoutyear.map((passout) => {
                                             return <option value={passout}>{passout}</option>
                                         })}

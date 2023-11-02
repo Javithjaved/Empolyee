@@ -68,7 +68,7 @@ const Component = () => {
             about={about}
             show={show}
           />
-        </div> : null
+        </div> : null    
       }
       {!show ?
         <div className='bg3'>
@@ -166,12 +166,12 @@ const Component = () => {
                       <label className="Url" for='Url'>Photo :</label>
                       <img className='image' alt='' ></img>
                     </div>
-                  </div>         
+                  </div>
                   <div className='row'>
                     <div className="col-3 skills">
                       <label className="skills " for='skills'>Skills :</label>
                       <p className='skills1 fw-medium '>{skills}</p>
-                    </div>     
+                    </div>
                   </div>
                   <div className="About">
                     <div className="col-6 about">
@@ -179,9 +179,9 @@ const Component = () => {
                       <p className='about1 fw-medium'>{about}</p>
                     </div>
                   </div>
-                  <div className='hr'>
-                    <hr></hr>
-                  </div>
+
+                  <hr></hr>
+
                   <div className='button text-end'>
                     <div className='col-12'>
                       <button type="button " onClick={() => setShow(!show)} className="btn btn-danger Edit me-4">Edit</button>

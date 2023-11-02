@@ -147,5 +147,18 @@ input::-webkit-inner-spin-button {
 .hr{
   color: white;
   margin-left: 46%;
-  border-top: 2px solid gray;
+  border-top: 3px solid gray;
+}
+h5.label{
+  background-color: whitesmoke;
+  color:rgb(118, 117, 117); ;
+}
+.table1{
+  height: 100vh;
+}
+div.page1{
+  background-color: whitesmoke;
+}
+.box7{
+  background-color: white;
 }

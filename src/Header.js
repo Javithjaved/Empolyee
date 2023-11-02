@@ -1,11 +1,13 @@
+import { useNavigate } from "react-router-dom";
 import Photo from "../src/Image/logo2.png"
 import Photo1 from "../src/Image/Photo1.jpg"
 const Header = () => {
+    const Navigate=useNavigate();    
     return (
         <>
             <div className="box1">
                 <div className="row">
-                    <div className="col-12">
+                    <div className="col-12 p-0">
                         <nav className="navbar navbar-expand-lg p-0">
                             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                                 <span className="navbar-toggler-icon"></span>
@@ -36,7 +38,7 @@ const Header = () => {
                                                 Hai, Javith
                                             </a>
                                             <ul className="dropdown-menu drop mt-4 text-center">
-                                                <li><a className="dropdown-item" href="#">Login out</a></li>
+                                                <li><a className="dropdown-item" href="" onClick={()=>Navigate("/")}>Login out</a></li>
                                             </ul>
                                         </p>
                                     </div>

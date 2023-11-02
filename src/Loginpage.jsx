@@ -1,6 +1,8 @@
+import { useNavigate } from "react-router-dom";
 import "../src/App.css"
 import Photo from "../src/Image/logo2.png"
-const LoginPage = () => {
+const LoginPage = () => {        
+            const Navigate=useNavigate();     
     return (
         <>
             <div className="background">
@@ -59,7 +61,7 @@ const LoginPage = () => {
                                     </div>
                                 </div>
                                 <div className=" col-10 btn1 mt-4" >
-                                    <button type="button" className="btn btn-danger btn1">Sign In</button>
+                                    <button type="button" onClick={()=>Navigate("/Component")} className="btn btn-danger btn1">Sign In</button>
                                 </div>
                                 <div className="row">
                                     <div className="col mt-4 text-center">

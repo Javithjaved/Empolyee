@@ -64,11 +64,11 @@ const Address = (props) => {
                             <div className='row'>
                                 <div className="col-3">
                                     <label className="label" for='City'>City :</label>
-                                    <input type="text" className="form-control mt-2" value={props.city} onChange={handleChangeCity} id="City"  onKeyDown={(e) => ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"].includes(e.key) && e.preventDefault()} required ></input>
+                                    <input type="text" className="form-control mt-2" name="City" value={props.city} onChange={handleChangeCity} id="City"  onKeyDown={(e) => ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"].includes(e.key) && e.preventDefault()} required ></input>
                                 </div>
                                 <div className="col-3">
                                     <label className="label" for='state'>State :</label>
-                                    <select name="state" value={props.state} onChange={handleChangeState} id="state" className="form-control mt-2" required>
+                                    <select name="state" value={props.state}  onChange={handleChangeState} id="state" className="form-control mt-2" required>
                                         {stateName.map((state) => {
                                             return <option value={state}>{state}</option>
                                         })}
@@ -82,7 +82,7 @@ const Address = (props) => {
                             <div className='col-3'>
                                 <div className='Country'>
                                     <label className="label" for='Country'>Country :</label>
-                                    <input type="text" className="form-control country mt-2" id='Country' value="India" required disabled ></input>
+                                    <input type="text" className="form-control country mt-2" id='Country' name="Country" value="India" required disabled ></input>
                                 </div>
                             </div>
                         </div>
