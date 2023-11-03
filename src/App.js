@@ -4,6 +4,7 @@ import Component from './Empolyee from'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LoginPage from "./Loginpage.jsx";
 import DashBoard from "./DashBoard";
+import Card from "./Card";
 const App= ()=>{
   return(
     <>
@@ -13,6 +14,7 @@ const App= ()=>{
         <Route path="/Component" element={<Component />}></Route>
         <Route path="/DashBoard" element={<DashBoard />}></Route>
         <Route path="/" element={<Component/>}></Route>
+        <Route path="/" element={<Card/>}></Route>
       </Routes>
     </Router>
     </>

@@ -4,7 +4,7 @@ const Sidebar = () => {
         const Navigate=useNavigate(); 
     return (
         <>
-                <div className="row">
+                <div className="row p-0">
                     <div className="col">
                         <div className="sidebar list-group ">
                             <a href="" className="list-group-item list-group-item-action home hover-bg-red p-3  "><Icon className="icon" icon="ic:baseline-home" /> Home  <span className="unicode">&#10095;</span></a>

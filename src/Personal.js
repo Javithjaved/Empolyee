@@ -4,6 +4,7 @@ const Personal = (props) => {
     const handleChangeFname = (e) => {
         { props.setFirstName(e.target.value) }
     }
+    console.log(props.firstName);
     const handleChangeLname = (e) => {
         { props.setLastName(e.target.value) }
     }
@@ -24,17 +25,17 @@ const Personal = (props) => {
             <div className='container-fluid p-0'>
                 <Header />
                 <div className='row'>
-                    <div className="col-2"><Sidebar /></div>
+                <div className="col-2 sidebar "><Sidebar /></div>
                     <div className="col-10 bg3">
-                        <div className="row mx-2 mt-3"><h5 className="label ">Personal Information &#10095; <span className="text "> Add Personal Information</span></h5></div>
-                        <hr className="hr2 ms-4 me-4" ></hr>
+                        <div className="row mx-2 mt-3"><h5 className="label2 ">Personal Information &#10095; <span className="text "> Add Personal Information</span></h5></div>
+                        <hr className="hr3" ></hr>
                         <div className="col personal rounded-top-4 p-3 ms-3 me-3 mt-4 pb-0">
                             <div className="row"><h5 className="header1  ">Personal Information</h5></div>
                             
                             <div className="row">
                                 <div className="col-4">
                                     <label className='label' for='FirstName'>First Name : </label>
-                                    <input type="text" className="form-control mt-2" value={props.firstName} onChange={handleChangeFname} onKeyDown={(e) => ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"].includes(e.key) && e.preventDefault()} id='FirstName' name='firstname' required></input>
+                                    <input type="text" className="form-control mt-2" value={props.firstName} onChange={(e) =>handleChangeFname(e)} onKeyDown={(e) => ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"].includes(e.key) && e.preventDefault()} id='FirstName' name='firstname' required></input>
                                 </div>
                                 <div className="col-4">
                                     <label className='label' for='LastName'>Last Name :</label>

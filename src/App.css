@@ -162,3 +162,48 @@ div.page1{
 .box7{
   background-color: white;
 }
+.vr{
+  border: 1px solid gray;
+  vertical-align: baseline !important;
+}
+.i{
+  vertical-align: baseline !important;
+}
+.i.unicode:hover{
+  color: red;
+}
+.label2,.unicode{
+  color: gray;
+  font-weight: 450;
+}
+.hr2{
+  margin-left: 30px;
+  margin-right: 81px;
+}
+.tabel{
+  background-color: white;
+  border-radius: 10px;
+
+}
+td.name{
+  color: blue;
+}
+.table-active{
+  border-radius: 10px;
+}
+.icons{
+  vertical-align: baseline !important;
+  margin-left: 95%;
+}
+
+th{
+  color: grey !important;
+  font-weight: 400;
+}
+.i.add:hover{
+  color: red;
+}
+.bg4{
+  background-color: whitesmoke;
+  height: 100vh;
+}
