@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";import Address from "./Address";
 const Education = (props) => {
     const handleChangeCollegeName = (e) => {
         { props.setCollegeName(e.target.value) }
@@ -17,13 +18,14 @@ const Education = (props) => {
     const handleChangeAbout = (e) => {
         { props.setAbout(e.target.value) }
     }
+    const Navigate = useNavigate();
     const passoutyear = ["", "2023", "2022", "2021", "2020", "2019", "2018", "2017", "2016", "2015", "2014"]
     const degreedepartment = ["", "BE-CSE", "BTech-IT", "BE-ECE", "BE-EEE", "BE-MECH"]
     return (
         <>
             <div className="container-fluid p-0">
                 <div className="row">
-                  <div className="sidebar col-2"></div>
+                  <div className=" col-2"></div>
                     <div className="col-10 bg3 ">
                         <div className="personal rounded-bottom-4 ms-3 me-3 p-3 pb-0">
                             <div className="row"><h5 className="header1">Education Details</h5></div>
@@ -71,10 +73,12 @@ const Education = (props) => {
                         
                             <div className="button text-end">
                                 <div className="col-12">
+                                <button type="button " onClick={() =>Navigate("/DashBoard")} className="btn btn-danger submit me-3">Cancel</button>
                                     <button type="button " value={props.show} onClick={() => props.setShow(!props.show)} className="btn btn-danger submit ">Submit</button>
                                 </div>
                             </div>
                         </div>
+                    
                     </div>
                 </div>
             </div>

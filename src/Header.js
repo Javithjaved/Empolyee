@@ -21,7 +21,7 @@ const Header = () => {
                                 </div>
                                 <div className="col-6">
                                     <p className="nav-item">
-                                        <p className="nav-link text-start empolyee mt-3 ms-3 fs-4 me-5" href="#">Empolyee Registration</p>
+                                        <p className="nav-link text-start empolyee mt-3 ms-3 fs-4 me-5" href="#"></p>
                                     </p>
                                 </div>
                                 <div className="row">

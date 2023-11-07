@@ -52,6 +52,7 @@ input::-webkit-inner-spin-button {
 
 .sidebar{
   background-color: white;
+ 
 }
 
 .home{
@@ -84,6 +85,7 @@ input::-webkit-inner-spin-button {
 }
 .bg3{
   background-color: whitesmoke;
+  height: 100vh;
 }
 .drop{
   margin-left:-58px;
@@ -198,12 +200,49 @@ td.name{
 
 th{
   color: grey !important;
-  font-weight: 400;
+  font-weight: 350;
 }
 .i.add:hover{
   color: red;
 }
 .bg4{
+  background-color:white;
+  border-radius: 10px;
+ 
+}
+.tablebox td{
+  background-color: rgb(237, 238, 240);
+  opacity: 1;
+  transform: none;
+  border-bottom: 1px solid #dbd8d8  ;
+  border-top:1px solid #dbd8d8 ;
+
+}
+tr td:first-child{
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+  border-left:1px solid #dbd8d8 ;
+}
+tr td:last-child{
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+  border-right: 1px solid #dbd8d8;
+
+}
+.table-spacing {
+  border-collapse: initial;
+  border-spacing: 0 5px;
+}
+.add{
+  color:blue;
+}
+.i{
+  color: red;
+}
+.bg6{
   background-color: whitesmoke;
+}
+.sidebar1{
+  background-color:white ;
   height: 100vh;
 }

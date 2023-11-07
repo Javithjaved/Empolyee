@@ -1,22 +1,25 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.css'
-import Component from './Empolyee from'
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter,Routes, Route } from "react-router-dom";
 import LoginPage from "./Loginpage.jsx";
 import DashBoard from "./DashBoard";
-import Card from "./Card";
-const App= ()=>{
-  return(
+import PersonalEdit from "./personalEdit.jsx";
+import Table from "./Table.jsx";
+import Employee from "./Empolyee from";
+const App = () => {
+  return (
     <>
-    <Router>
-      <Routes>
-        <Route path="/" element={<LoginPage />}></Route>
-        <Route path="/Component" element={<Component />}></Route>
-        <Route path="/DashBoard" element={<DashBoard />}></Route>
-        <Route path="/" element={<Component/>}></Route>
-        <Route path="/" element={<Card/>}></Route>
-      </Routes>
-    </Router>
+    <BrowserRouter>    
+        <Routes>
+           <Route path="/" element={<LoginPage />}></Route>
+          <Route path="/DashBoard" element={<DashBoard />}></Route>
+          <Route path="/Employee" element={<Employee/>}></Route>
+          <Route path="/DashBoard" element={<Employee/>}></Route>
+         
+          <Route path="/personalEdit" element={<PersonalEdit/>}></Route> 
+          {/* <Route path="/Table" element={<Table/>}></Route> */}
+        </Routes> 
+      </BrowserRouter>
     </>
   )
 }

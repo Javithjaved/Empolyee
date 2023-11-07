@@ -52,7 +52,7 @@ const Address = (props) => {
         <>
             <div className="container-fluid p-0">
                 <div className="row ">
-                    <div className="sidebar  col-2"></div>
+                    <div className="col-2"></div>
                     <div className="col-10 bg3 ">
                         <div className="col personal ms-3 me-3 p-3 pb-0">
                             <div className="row"><h5 className="header1">Address Details</h5></div>                          
@@ -85,7 +85,7 @@ const Address = (props) => {
                                     <input type="text" className="form-control country mt-2" id='Country' name="Country" value="India" required disabled ></input>
                                 </div>
                             </div>
-                        </div>
+                        </div>                      
                     </div>
                 </div>
             </div>
