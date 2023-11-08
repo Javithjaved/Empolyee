@@ -48,11 +48,12 @@ const Address = (props) => {
         "Delhi",
         "Lakshadweep",
         "Puducherry"]
+        const Country = ["India"]
     return (
         <>
             <div className="container-fluid p-0">
                 <div className="row ">
-                    <div className="col-2"></div>
+                    <div className="col-2 "></div>
                     <div className="col-10 bg3 ">
                         <div className="col personal ms-3 me-3 p-3 pb-0">
                             <div className="row"><h5 className="header1">Address Details</h5></div>                          

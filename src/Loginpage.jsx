@@ -61,7 +61,7 @@ const LoginPage = () => {
                                     </div>
                                 </div>
                                 <div className=" col-10 btn1 mt-4" >
-                                    <button type="button" onClick={()=>Navigate("/DashBoard" )} className="btn btn-danger btn1">Sign In</button>
+                                    <button type="button" onClick={()=>Navigate('/Employee' )} className="btn btn-danger btn1">Sign In</button>
                                 </div>
                                 <div className="row">
                                     <div className="col mt-4 text-center">

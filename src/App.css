@@ -85,7 +85,7 @@ input::-webkit-inner-spin-button {
 }
 .bg3{
   background-color: whitesmoke;
-  height: 100vh;
+  
 }
 .drop{
   margin-left:-58px;
@@ -245,4 +245,8 @@ tr td:last-child{
 .sidebar1{
   background-color:white ;
   height: 100vh;
+}
+.bg8{
+  background-color: whitesmoke;
+  height:100vh;
 }

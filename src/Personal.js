@@ -27,7 +27,7 @@ const Personal = (props) => {
                 <div className='row'>
                 <div className="col-2"><Sidebar /></div>
                     <div className="col-10 bg3">
-                        <div className="row mx-2 mt-3"><h5 className="label2 ">Personal Details &#10095; <span className="text ">Add Personal Details</span></h5></div>
+                        <div className="row mx-2 mt-3"><h5 className="label2 "> User Profile &#10095; <span className="text ">Add User Profile</span></h5></div>
                         <hr className="hr3 ms-3 me-3" ></hr>
                         <div className="col personal rounded-top-4 p-3 ms-3 me-3 mt-4 pb-0">
                             <div className="row"><h5 className="header1  ">Personal Information</h5></div>
@@ -75,8 +75,7 @@ const Personal = (props) => {
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    
+                        </div>   
                     </div>
                 </div>
             </div>
