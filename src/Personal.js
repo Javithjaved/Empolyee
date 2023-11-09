@@ -1,24 +1,10 @@
 import Sidebar from "./Sidebar";
 import Header from "./Header";
-const Personal = (props) => {
-    const handleChangeFname = (e) => {
-        { props.setFirstName(e.target.value) }
-    }
-    console.log(props.firstName);
-    const handleChangeLname = (e) => {
-        { props.setLastName(e.target.value) }
-    }
-    const handleChangeEmail = (e) => {
-        { props.setEmailId(e.target.value) }
-    }
-    const handleChangeMobile = (e) => {
-        { props.setMobile(e.target.value) }
-    }
-    const handleChangeGender = (e) => {
-        { props.setGender(e.target.value) }
-    }
-    const handleChangeDOB = (e) => {
-        { props.setDob(e.target.value) }
+const Personal = ({allValue ,setAllValue}) => {
+    const handleChangeInput=(e)=>{
+        setAllValue({...allValue,[e.target.name]: e.target.value });
+        console.log(allValue);
+        
     }
     return (
         <>
@@ -35,21 +21,21 @@ const Personal = (props) => {
                             <div className="row">
                                 <div className="col-4">
                                     <label className='label' for='FirstName'>First Name : </label>
-                                    <input type="text" className="form-control mt-2" value={props.firstName} onChange={(e) =>handleChangeFname(e)} onKeyDown={(e) => ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"].includes(e.key) && e.preventDefault()} id='FirstName' name='firstname' required></input>
+                                    <input type="text" className="form-control mt-2" value={allValue.firstName} onChange={(e) =>handleChangeInput(e)} onKeyDown={(e) => ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"].includes(e.key) && e.preventDefault()} id='FirstName' name='firstName' required></input>
                                 </div>
                                 <div className="col-4">
                                     <label className='label' for='LastName'>Last Name :</label>
-                                    <input type="text" className="form-control lastname mt-2" value={props.lastName} onChange={handleChangeLname} onKeyDown={(e) => ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"].includes(e.key) && e.preventDefault()} id='LastName' name='lastname' required ></input>
+                                    <input type="text" className="form-control lastname mt-2" value={allValue.lastName} onChange={(e)=>handleChangeInput(e)} onKeyDown={(e) => ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"].includes(e.key) && e.preventDefault()} id='LastName' name='lastName' required ></input>
                                 </div>
                             </div>
                             <div className="row">
                                 <div className="col-4">
                                     <label className='label' for='EmailId'>Email-ID :</label>
-                                    <input type="text" className="form-control mt-2" value={props.emailId} onChange={handleChangeEmail} id='EmailId' name='EmailID ' required></input>
+                                    <input type="text" className="form-control mt-2" value={allValue.emailId} onChange={(e)=>handleChangeInput(e)} id='EmailId' name='emailId' required></input>
                                 </div>
                                 <div className="col-4">
                                     <label className='label' for='Mobile'>Mobile No :</label>
-                                    <input type="number" className="form-control mobileno mt-2" value={props.mobile} onChange={handleChangeMobile} onKeyDown={(e) => ["e", "E", "+", "-"].includes(e.key) && e.preventDefault()} id='Mobile' name='Mobile' required ></input>
+                                    <input type="number" className="form-control mobileno mt-2" value={allValue.mobile} onChange={(e)=>handleChangeInput(e)} onKeyDown={(e) => ["e", "E", "+", "-"].includes(e.key) && e.preventDefault()} id='Mobile' name='mobile' required ></input>
                                 </div>
                             </div>
                             <div className="row">
@@ -58,11 +44,11 @@ const Personal = (props) => {
                                         <div className="gendername">
                                             <label className='label' for='Gender'>Gender :</label>
                                         </div>
-                                        <input type="radio" value="Male" name="radio" id='Gender' className='form-check-input' onClick={handleChangeGender} required />
+                                        <input type="radio" value="Male" name="Male" id='Gender' className='form-check-input' onChange={(e)=>handleChangeInput(e)} required />
                                         <label className='Male ms-2'>Male</label>
-                                        <input type="radio" value="Female" name="radio" id='Gender' className='form-check-input ms-2' onClick={handleChangeGender} required />
+                                        <input type="radio" value="Female" name="Female" id='Gender' className='form-check-input ms-2' onChange={(e)=>handleChangeInput(e)} required />
                                         <label className='Female ms-2'>Female</label>
-                                        <input type="radio" value="Other" name="radio" id='Gender' className='form-check-input ms-2' onClick={handleChangeGender} required />
+                                        <input type="radio" value="Other" name="Other" id='Gender' className='form-check-input ms-2' onChange={(e)=>handleChangeInput(e)} required />
                                         <label className='other ms-2'>Other</label>
                                     </div>
                                 </div>
@@ -70,7 +56,7 @@ const Personal = (props) => {
                                     <div className="Dob">
                                         <label className="label" for='Dob'>Date of birth :</label>
                                         <div className="date">
-                                            <input type="date" id="Dob" className='form-control' value={props.dob} onChange={handleChangeDOB} name="dob" min="1945-01-01" max="2003-12-31"></input>
+                                            <input type="date" id="Dob" className='form-control' value={allValue.dob} onChange={(e)=>handleChangeInput(e)} name='dob' min="1945-01-01" max="2003-12-31"></input>
                                         </div>
                                     </div>
                                 </div>

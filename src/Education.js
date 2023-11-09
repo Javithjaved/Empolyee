@@ -1,32 +1,10 @@
-import { Link, useNavigate } from "react-router-dom";import Address from "./Address";
-const Education = (props) => {
-    const handleChangeCollegeName = (e) => {
-        { props.setCollegeName(e.target.value) }
+import {Link, useNavigate } from "react-router-dom";
+const Education = ({allValue ,setAllValue}) => {
+const handleChangeInput=(e)=>{
+        setAllValue({...allValue,[e.target.name]: e.target.value });
+        console.log(allValue);
     }
-    const handleChangepassout = (e) => {
-        { props.setPassout(e.target.value) }
-    }
-    const handleChangeDegree = (e) => {
-        { props.setDegree(e.target.value) }
-    }
-    const handleChangeSkills = (e) => {
-        { props.setSkills(e.target.value) }
-    }
-    const handleChangeurl = (e) => {
-        { props.setUrl(e.target.value) }
-    }
-    const handleChangeAbout = (e) => {
-        { props.setAbout(e.target.value) }
-    }
-    const handleSubmit=(e)=>{
-        console.log(props.firstName)
-        console.log(props.emailId)
-        console.log(props.mobile)
-        e.preventDefault()
-    //    { props.setAllValue([...props.AllValue,props.firstName,props.emailId,props.mobile])}
 
-    } 
-    // console.log(props.AllValue);
     const Navigate = useNavigate();
     const passoutyear = ["", "2023", "2022", "2021", "2020", "2019", "2018", "2017", "2016", "2015", "2014"]
     const degreedepartment = ["", "BE-CSE", "BTech-IT", "BE-ECE", "BE-EEE", "BE-MECH"]
@@ -42,11 +20,11 @@ const Education = (props) => {
                             <div className="row">
                                 <div className="col-3">
                                     <label className='label' for='CollegeName' >College Name :</label>
-                                    <input type="text" className="form-control mt-2" value={props.collegeName} onChange={handleChangeCollegeName} onKeyDown={(e) => ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"].includes(e.key) && e.preventDefault()} id='CollegeName' name='CollegeName' required ></input>
+                                    <input type="text" className="form-control mt-2" value={allValue.collegeName }onChange={(e)=>handleChangeInput(e)} onKeyDown={(e) => ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"].includes(e.key) && e.preventDefault()} id='CollegeName' name='collegeName ' required ></input>
                                 </div>
                                 <div className="col-3">
                                     <label className="label " for='Passout'>Pass out :</label>
-                                    <select value={props.passout} onChange={handleChangepassout} id="Passout" className="form-control mt-2" name="passout" required >
+                                    <select value={allValue.passout} onChange={(e)=>handleChangeInput(e)} id="Passout" className="form-control mt-2" name="passout" required >
                                         {passoutyear.map((passout) => {
                                             return <option value={passout}>{passout}</option>
                                         })}
@@ -54,7 +32,7 @@ const Education = (props) => {
                                 </div>
                                 <div className="col-2">
                                     <label className="label" for='Degree'>Degree :</label>
-                                    <select name="Degree" value={props.degree} onChange={handleChangeDegree} id="Degree" className="form-control mt-2" required>
+                                    <select name="degree" value={allValue.degree } onChange={(e)=>handleChangeInput(e)} id="Degree" className="form-control mt-2" required>
                                         {degreedepartment.map((degree) => {
                                             return <option value={degree}>{degree}</option>
                                         })}
@@ -64,17 +42,17 @@ const Education = (props) => {
                             <div className='row'>
                                 <div className="col-4 ">
                                     <label className="label " for='skills'>Skills :</label>
-                                    <input type="text" className="form-control mt-2" value={props.skills} onChange={handleChangeSkills} onKeyDown={(e) => ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"].includes(e.key) && e.preventDefault()} id="skills" name='Skills' required></input>
+                                    <input type="text" className="form-control mt-2" value={allValue.skills} onChange={(e)=>handleChangeInput(e)} onKeyDown={(e) => ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"].includes(e.key) && e.preventDefault()} id="skills" name='skills' required></input>
                                 </div>
                                 <div className='col-4'>
                                     <label className="label" for='Url'>Enter Photo URL:</label>
-                                    <input type="img" name="Url" value={props.url} onChange={handleChangeurl} id="Url" className="form-control mt-2" placeholder="https://example.com" pattern="src/" required />
+                                    <input type="img" name="url" value={allValue.url} onChange={(e)=>handleChangeInput(e)} id="Url" className="form-control mt-2" placeholder="https://example.com" pattern="src/" required />
                                 </div>
                             </div>
                             <div className="About">
                                 <div className="col-8">
                                     <label className="label" for='About'>About :</label>
-                                    <textarea className="form-control mt-2" value={props.about} onChange={handleChangeAbout} onKeyDown={(e) => ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"].includes(e.key) && e.preventDefault()} id="About" placeholder='Intro about Yourself' name='About ' required></textarea>
+                                    <textarea className="form-control mt-2" value={allValue.about} onChange={(e)=>handleChangeInput(e)} onKeyDown={(e) => ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"].includes(e.key) && e.preventDefault()} id="About" placeholder='Intro about Yourself' name='about ' required></textarea>
                                 </div>
                             </div>
                            
@@ -83,7 +61,8 @@ const Education = (props) => {
                             <div className="button text-end">
                                 <div className="col-12">
                                 <button type="button " onClick={() =>Navigate('/Employee')} className="btn btn-danger submit me-3">Cancel</button>
-                                <button type="button "  className="btn btn-danger submit " onClick={handleSubmit}>Submit</button>  
+                                
+                             <button type="button "  className="btn btn-danger submit  ">Submit</button> 
                                 </div>
                             </div>
                         </div>                   

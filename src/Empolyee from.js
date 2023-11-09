@@ -3,30 +3,9 @@ import { useState } from 'react';
 import Personal from './Personal';
 import Address from './Address';
 import Education from './Education';
-import Sidebar from "./Sidebar";
-import Header from "./Header";
-import { Icon } from '@iconify/react';
-import { useNavigate } from "react-router-dom";
-const DashBoard1 = () => {
-  // const [show, setShow] = useState(true)
-  // const [firstName, setFirstName] = useState();
-  // const [lastName, setLastName] = useState();
-  // const [emailId, setEmailId] = useState();
-  // const [mobile, setMobile] = useState();
-  // const [gender, setGender] = useState();
-  // const [dob, setDob] = useState();
-  // const [address, setAddress] = useState();
-  // const [city, setCity] = useState();
-  // const [state, setstate] = useState();
-  // const [zip, setZip] = useState();
-  // const [collegeName, setCollegeName] = useState();
-  // const [degree, setDegree] = useState();
-  // const [passout, setPassout] = useState();
-  // const [skills, setSkills] = useState();
-  // const [url, setUrl] = useState();
-  // const [about, setAbout] = useState();
-  
-  const [Allvalue, setAllValue] = useState(
+import DashBoard from './DashBoard';
+const DashBoard1 = () => {  
+  const [allValue, setAllValue] = useState(
     {firstName :"",
     lastName :"",
     emailId :"",
@@ -43,68 +22,38 @@ const DashBoard1 = () => {
     skills :"",
     url :"",
     about:"",
+    show :"",
 })
-const Inputhandlechange=(e)=>{
-   setAllValue=(prevState)=>{
-    ...prevState,[e.target.name] : e.target.Value
-
-  }
-}
-
-  const Navigate = useNavigate();
   return (
     <>
-      {show ?
+    {
         <div>
           <Personal
-            setFirstName={setFirstName}
-            setLastName={setLastName}
-            setEmailId={setEmailId}
-            setMobile={setMobile}
-            setGender={setGender}
-            setDob={setDob}
-            firstName={firstName}
-            lastName={lastName}
-            emailId={emailId}
-            mobile={mobile}
-            gender={gender}
-            dob={dob}
+          setAllValue={setAllValue}
+          allValue={allValue}
+          
+    
           />
           <Address
-            setAddress={setAddress}
-            setCity={setCity}
-            setstate={setstate}
-            setZip={setZip}
-            address={address}
-            city={city}
-            state={state}
-            zip={zip}
+           setAllValue={setAllValue}
+           allValue={allValue}
+           
           />
           <Education
-            setCollegeName={setCollegeName}
-            setPassout={setPassout}
-            setDegree={setDegree}
-            setSkills={setSkills}
-            setUrl={setUrl}
-            setAbout={setAbout}
-            setShow={setShow}
-            setFirstName={setFirstName}
-            setEmailId={setEmailId}
-            setMobile={setMobile}
-            firstName={firstName}
-            emailId={emailId}
-            mobile={mobile}
-            collegeName={collegeName}
-            passout={passout}
-            degree={degree}
-            skills={skills}
-            url={url}
-            about={about}
-            show={show}
+           setAllValue={setAllValue}
+           allValue={allValue}
+           
           />
-        </div> : null
-      } 
+          
+          {/* <DashBoard
+          setAllValue={setAllValue}
+          allValue={allValue}
+          
+          /> */}
+        </div>
+}
     </>
+
   );
 };
 export default DashBoard1;
