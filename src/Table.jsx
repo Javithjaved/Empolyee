@@ -1,20 +1,20 @@
-import { UseState } from "react"
-const table=(allValue,setAllValue,firstName,emailId,mobile)=>{
-    const[Rows,setRows]=UseState([]);
-    const Addtable=()=>{
-        const data={
-            firstName:"",
-            emailId:"",
-            mobile:"",
-        }
-        setAllValue([...Rows,data])
+// import { UseState } from "react"
+// const table=(allValue,setAllValue,firstName,emailId,mobile)=>{
+//     const[Rows,setRows]=UseState([]);
+//     const Addtable=()=>{
+//         const data={
+//             firstName:"",
+//             emailId:"",
+//             mobile:"",
+//         }
+//         setAllValue([...Rows,data])
 
-    }
+//     }
   
-    return(
-        <>
+//     return(
+//         <>
 
-        </>
-    )
-}
-export default table;
+//         </>
+//     )
+// }
+// export default table;

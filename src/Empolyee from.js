@@ -4,8 +4,17 @@ import Personal from './Personal';
 import Address from './Address';
 import Education from './Education';
 import DashBoard from './DashBoard';
-const DashBoard1 = () => {  
-  const [allValue, setAllValue] = useState(
+const Empolyee = () => { 
+  // const [rows, initRow] = useState([]);
+  // const addRowTable = () => {
+  //   const data = {
+  //     name: "",
+  //     email: "",
+  //     profile: "",
+  //   };
+  //   initRow([...rows, data]);
+  // };
+  const  [allValue, setAllValue] = useState(
     {firstName :"",
     lastName :"",
     emailId :"",
@@ -16,6 +25,7 @@ const DashBoard1 = () => {
     city :"",
     state :"",
     zip :"",
+    Country :"",
     collegeName :"",
     degree :"",
     passout :"",
@@ -24,9 +34,10 @@ const DashBoard1 = () => {
     about:"",
     show :"",
 })
+
   return (
     <>
-    {
+    {!allValue.show ?
         <div>
           <Personal
           setAllValue={setAllValue}
@@ -41,19 +52,20 @@ const DashBoard1 = () => {
           />
           <Education
            setAllValue={setAllValue}
-           allValue={allValue}
-           
+           allValue={allValue} 
           />
-          
-          {/* <DashBoard
-          setAllValue={setAllValue}
-          allValue={allValue}
-          
-          /> */}
-        </div>
+        </div>:null
+}
+{allValue.show ?
+<div>
+  <DashBoard
+  setAllValue={setAllValue}
+  allValue={allValue} 
+/>
+</div>:null
 }
     </>
 
   );
 };
-export default DashBoard1;
+export default Empolyee;

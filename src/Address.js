@@ -1,8 +1,10 @@
 const Address = ({allValue ,setAllValue}) => {
     const handleChangeInput=(e)=>{
+        e.preventDefault();
         setAllValue({...allValue,[e.target.name]: e.target.value });
-        console.log(allValue);
+        // console.log(allValue);
     }
+    // setInput([...input,allValue])
 
     const stateName = ["",
         "Andhra Pradesh",
@@ -76,7 +78,7 @@ const Address = ({allValue ,setAllValue}) => {
                             <div className='col-3'>
                                 <div className='Country'>
                                     <label className="label" for='Country'>Country :</label>
-                                    <input type="text" className="form-control country mt-2" id='Country' name="country" value="India" required disabled ></input>
+                                    <input type="text" className="form-control country mt-2" id='Country' name="country" placeholder="India" value={allValue.Country} required disabled ></input>
                                 </div>
                             </div>
                         </div>                      

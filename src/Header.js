@@ -38,7 +38,7 @@ const Header = () => {
                                                 Hai, Javith
                                             </a>
                                             <ul className="dropdown-menu drop mt-4 text-center">
-                                                <li><a className="dropdown-item" href="" onClick={()=>Navigate("/")}>Login out</a></li>
+                                                <li><a className="dropdown-item" href="" onClick={()=>Navigate("/")}>Logout</a></li>
                                             </ul>
                                         </p>
                                     </div>

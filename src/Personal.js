@@ -1,11 +1,20 @@
 import Sidebar from "./Sidebar";
 import Header from "./Header";
+import { useState } from "react";
+import { Link, Navigate } from "react-router-dom";
 const Personal = ({allValue ,setAllValue}) => {
+
+    // const [inputdata,setInputData]=useState([{firstName:'',emailId:'',mobile:''}])
+    // const handleChangeinput=(e)=>{
+    //     setInputData({...inputdata,[e.target.name]:e.target.value})
+    
     const handleChangeInput=(e)=>{
+        e.preventDefault();
         setAllValue({...allValue,[e.target.name]: e.target.value });
-        console.log(allValue);
-        
-    }
+
+        // setDetails({...details,[e.target.name]: e.target.value })
+    }     
+    // setInput([...input,allValue])
     return (
         <>
             <div className='container-fluid p-0'>
@@ -35,7 +44,7 @@ const Personal = ({allValue ,setAllValue}) => {
                                 </div>
                                 <div className="col-4">
                                     <label className='label' for='Mobile'>Mobile No :</label>
-                                    <input type="number" className="form-control mobileno mt-2" value={allValue.mobile} onChange={(e)=>handleChangeInput(e)} onKeyDown={(e) => ["e", "E", "+", "-"].includes(e.key) && e.preventDefault()} id='Mobile' name='mobile' required ></input>
+                                    <input type="number" className="form-control mobileno mt-2" value={allValue.mobile} onChange={(e)=>handleChangeInput(e)} onKeyDown={(e) => ["e", "E", "+", "-"].includes(e.key) && e.preventDefault()} id='mobile' name='mobile' required ></input>
                                 </div>
                             </div>
                             <div className="row">
@@ -51,6 +60,7 @@ const Personal = ({allValue ,setAllValue}) => {
                                         <input type="radio" value="Other" name="Other" id='Gender' className='form-check-input ms-2' onChange={(e)=>handleChangeInput(e)} required />
                                         <label className='other ms-2'>Other</label>
                                     </div>
+                                    
                                 </div>
                                 <div className='col-4'>
                                     <div className="Dob">
@@ -60,6 +70,7 @@ const Personal = ({allValue ,setAllValue}) => {
                                         </div>
                                     </div>
                                 </div>
+                                
                             </div>
                         </div>   
                     </div>
