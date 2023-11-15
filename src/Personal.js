@@ -1,20 +1,11 @@
 import Sidebar from "./Sidebar";
 import Header from "./Header";
-import { useState } from "react";
-import { Link, Navigate } from "react-router-dom";
-const Personal = ({allValue ,setAllValue}) => {
-
-    // const [inputdata,setInputData]=useState([{firstName:'',emailId:'',mobile:''}])
-    // const handleChangeinput=(e)=>{
-    //     setInputData({...inputdata,[e.target.name]:e.target.value})
-    
+const Personal = ({allValue,setAllValue}) => {
     const handleChangeInput=(e)=>{
         e.preventDefault();
         setAllValue({...allValue,[e.target.name]: e.target.value });
-
-        // setDetails({...details,[e.target.name]: e.target.value })
     }     
-    // setInput([...input,allValue])
+    // setInputArr([...InputArr,allValue])
     return (
         <>
             <div className='container-fluid p-0'>
@@ -53,12 +44,12 @@ const Personal = ({allValue ,setAllValue}) => {
                                         <div className="gendername">
                                             <label className='label' for='Gender'>Gender :</label>
                                         </div>
-                                        <input type="radio" value="Male" name="Male" id='Gender' className='form-check-input' onChange={(e)=>handleChangeInput(e)} required />
-                                        <label className='Male ms-2'>Male</label>
-                                        <input type="radio" value="Female" name="Female" id='Gender' className='form-check-input ms-2' onChange={(e)=>handleChangeInput(e)} required />
-                                        <label className='Female ms-2'>Female</label>
-                                        <input type="radio" value="Other" name="Other" id='Gender' className='form-check-input ms-2' onChange={(e)=>handleChangeInput(e)} required />
-                                        <label className='other ms-2'>Other</label>
+                                        <input type="radio" value="Male" name="Gender" id='Gender' className='form-check-input' onChange={(e)=>handleChangeInput(e)} required />
+                                        <label className='Male ms-2' for="Male">Male</label>
+                                        <input type="radio" value="Female" name="Gender" id='Gender' className='form-check-input ms-2' onChange={(e)=>handleChangeInput(e)} required />
+                                        <label className='Female ms-2' for="Female">Female</label>
+                                        <input type="radio" value="Other" name="Gender" id='Gender' className='form-check-input ms-2' onChange={(e)=>handleChangeInput(e)} required />
+                                        <label className='other ms-2' for="Other">Other</label>
                                     </div>
                                     
                                 </div>
@@ -69,8 +60,7 @@ const Personal = ({allValue ,setAllValue}) => {
                                             <input type="date" id="Dob" className='form-control' value={allValue.dob} onChange={(e)=>handleChangeInput(e)} name='dob' min="1945-01-01" max="2003-12-31"></input>
                                         </div>
                                     </div>
-                                </div>
-                                
+                                </div>                          
                             </div>
                         </div>   
                     </div>
