@@ -1,17 +1,16 @@
 import { useNavigate } from "react-router-dom";
-import "../src/App.css"
-import Photo from "../src/Image/logo2.png"
-const LoginPage = () => {        
-            const Navigate=useNavigate();     
+import "../asset/css/App.css"
+import Photo from "../asset/image/logo2.png"
+const LoginPage = () => {
+    const Navigate = useNavigate();
     return (
         <>
             <div className="background">
                 <nav className="navbar ">
                     <div className="container mt-3">
-                        <a className="navbar-brand" href="#">
-                            <img className="logoimg" src={Photo} alt="Logo" width="40" />
-                            <span className="cname mx-3 fs-4 ">Red Hap Technology</span>
-                        </a>
+                        <p className="navbar-brand" >
+                            <img className="logoimg" src={Photo} alt="Logo" height="50" />
+                        </p>
                     </div>
                 </nav>
                 <div className="row">
@@ -33,10 +32,7 @@ const LoginPage = () => {
                     <div className="col-4">
                         <div className="loginbox ">
                             <div className=" col-12 loginpage text-center  ">
-                                <img className="logoimg2" src={Photo} alt="Logo" width="40" class="logoimg2" />
-                                <div className="companyname">
-                                    <p className="companyname fs-4 mt-3">Red Hap Technology</p>
-                                </div>
+                                <img className="logoimg2" src={Photo} alt="Logo" height="50" class="logoimg2" />
                             </div>
                             <div className="col-12 input p-5 pt-0">
                                 <div className="row">
@@ -57,19 +53,19 @@ const LoginPage = () => {
                                 </div>
                                 <div className="col mt-3">
                                     <div className="Fpassword text-end">
-                                        <a className="text2" href="#">Forget Password?</a>
+                                        <p className="text2" >Forget Password?</p>
                                     </div>
                                 </div>
                                 <div className=" col-10 btn1 mt-4" >
-                                    <button type="button" onClick={()=>Navigate('/Employee')} className="btn btn-danger btn1">Sign In</button>
+                                    <button type="button" onClick={() => Navigate('/Employee')} className="btn btn-danger btn1">Sign In</button>
                                 </div>
                                 <div className="row">
                                     <div className="col mt-4 text-center">
-                                        <a href="#" className="label1 mt-2">Don't have an account?</a>
+                                        <p  className="label1 mt-2">Don't have an account?</p>
                                         <div>
-                                            <a href="#" className="text2 mt-2" >Create account</a>
+                                            <p  className="text2 mt-2" >Create account</p>
                                         </div>
-                                    </div>                               
+                                    </div>
                                 </div>
                             </div>
                         </div>

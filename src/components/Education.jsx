@@ -1,6 +1,5 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-const Education = ({ allValue, setAllValue,setInputArr,inputArr}) => {
+const Education = ({ allValue, setAllValue, setInputArr, inputArr }) => {
     const handleChangeInput = (e) => {
         e.preventDefault();
         setAllValue({ ...allValue, [e.target.name]: e.target.value });
@@ -9,15 +8,10 @@ const Education = ({ allValue, setAllValue,setInputArr,inputArr}) => {
     const passoutyear = ["", "2023", "2022", "2021", "2020", "2019", "2018", "2017", "2016", "2015", "2014"]
     const degreedepartment = ["", "BE-CSE", "BTech-IT", "BE-ECE", "BE-EEE", "BE-MECH"]
     const handleChangeSubmit = (e) => {
-
         e.preventDefault()
-        setInputArr([...inputArr,allValue]);
-
+        setInputArr([...inputArr, allValue]);
         Navigate("/DashBoard");
     }
-    console.log([inputArr]);
-
-    console.log(allValue);
     return (
         <>
             <div className="container-fluid p-0">
@@ -56,18 +50,16 @@ const Education = ({ allValue, setAllValue,setInputArr,inputArr}) => {
                                 </div>
                                 <div className='col-4'>
                                     <label className="label" for='Url'>Enter Photo URL:</label>
-                                    <input type="img" name="url" value={allValue.url} onChange={(e) => handleChangeInput(e)} id="Url" className="form-control mt-2" placeholder="https://example.com" pattern="src/" required />
+                                    <input type="img" name="url" value={allValue.url} onChange={(e) => handleChangeInput(e)} id="Url" className="form-control mt-2" pattern="src/" required />
                                 </div>
                             </div>
                             <div className="About">
                                 <div className="col-8">
                                     <label className="label" for='About'>About :</label>
-                                    <textarea className="form-control mt-2" value={allValue.about} onChange={(e) => handleChangeInput(e)} onKeyDown={(e) => ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"].includes(e.key) && e.preventDefault()} id="About" placeholder='Intro about Yourself' name='about' required></textarea>
+                                    <textarea className="form-control mt-2" value={allValue.about} onChange={(e) => handleChangeInput(e)} onKeyDown={(e) => ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"].includes(e.key) && e.preventDefault()} id="About" name='about' required></textarea>
                                 </div>
                             </div>
-
                             <hr></hr>
-
                             <div className="button text-end">
                                 <div className="col-12">
                                     <button type="button " onClick={() => Navigate('/Employee')} className="btn btn-danger submit me-3">Cancel</button>

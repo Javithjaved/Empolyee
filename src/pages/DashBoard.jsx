@@ -1,11 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import { Icon } from '@iconify/react';
-import Sidebar from "./Sidebar";
-import Header from "./Header";
-const DashBoard = ({inputArr,allValue}) => {
+import Sidebar from "../components/Sidebar";
+import Header from "../components/Header";
+const DashBoard = ({ inputArr }) => {
     const Navigate = useNavigate();
-    console.log(inputArr);
-    console.log(allValue);
     return (
         <div>
             <div className="bg3">
@@ -26,7 +24,7 @@ const DashBoard = ({inputArr,allValue}) => {
                             <div className="tb">
                                 <div className="row">
                                     <div className="col p-4 pe-4 pt-0 me-2 ms-2">
-                                        <table class="table table-borderless table-spacing p-2 pt-0">
+                                        <table className="table table-borderless table-spacing p-2 pt-0">
                                             <thead>
                                                 <tr className="tablebox" >
                                                     <th scope="col ">Name</th>
@@ -37,13 +35,13 @@ const DashBoard = ({inputArr,allValue}) => {
                                             </thead>
                                             <tbody  >
                                                 {
-                                                   inputArr.map((val, i) => {
+                                                    inputArr.map((val, i) => {
                                                         return (
                                                             <tr className="tablebox" key={i}>
-                                                                <td className="name primary">{[val.firstName]}</td>
+                                                                <td className="name">{[val.firstName]}</td>
                                                                 <td>{[val.emailId]}</td>
-                                                               <td>{[val.mobile]}</td>
-                                                                <td><span className="i"><Icon className="i" href="" onClick={() => Navigate('/DashBoard')} icon="nimbus:edit" /></span><span className="vr ms-1"></span><span><Icon className="i ms-1" icon="pajamas:remove" /></span><span className="vr ms-1"></span><Icon className="i ms-1" onClick={()=>Navigate("/Card")} icon="bxs:show" /></td>
+                                                                <td>{[val.mobile]}</td>
+                                                                <td><span className="i"><Icon onClick={() => Navigate("/Employee")} className="i" href="" icon="nimbus:edit" /></span><span className="vr ms-1"></span><span><Icon className="i ms-1" icon="pajamas:remove" /></span><span className="vr ms-1"></span><Icon className="i ms-1" onClick={() => Navigate("/Card")} icon="bxs:show" /></td>
                                                             </tr>
                                                         )
                                                     })

@@ -16,10 +16,6 @@ input::-webkit-inner-spin-button {
   height: 50px;
   width: 150px;
 }
-.box{
-  margin-left: 4px;
-  margin-right: -190px;
-}
 .text{
   color: black;
   font-weight: 600;
@@ -30,20 +26,6 @@ input::-webkit-inner-spin-button {
 .country{
   width: 96%;
 }
-.image{
-  background-image: url(./Image/Photo1.jpg);
-  width: 190px;
-  height: 200px;
-  background-position-x: -284px;
-  background-position-y: -73px;
-  border-radius: 150px;
-  margin-left: 10px;
-}
-
-.img{
-  width: 3%;
-  margin-left: 1%;
-} 
 
 .box{
   background-color: black;
@@ -62,7 +44,8 @@ input::-webkit-inner-spin-button {
   color: gray;
 }
 .home:hover{
-  color:red;;
+  color:red;
+  cursor: pointer;
 }
 .userphoto{
   float: right;
@@ -92,7 +75,7 @@ input::-webkit-inner-spin-button {
 }
 .background
 {
- background-image: url(./Image/back.jpg);
+ background-image: url("../image/back.jpg");
   background-position: center !important;
   background-size: cover !important;
   height: 100vh !important;
@@ -137,7 +120,7 @@ input::-webkit-inner-spin-button {
   color:black ;
   font-weight: 500;
   font-size: medium;
-}
+} 
 .text3{
   color: white;
   font-size:xx-large;
@@ -242,4 +225,16 @@ tr td:last-child{
 .sidebar1{
   background-color:white ;
   height: 100vh;
+}
+.page{
+  float: inline-end;
+}
+.image{
+  background-image: url("../image/Photo1.jpg");
+  width: 190px;
+  height: 200px;
+  background-position-x: -284px;
+  background-position-y: -73px;
+  border-radius: 150px;
+  margin-left: 10px;
 }
