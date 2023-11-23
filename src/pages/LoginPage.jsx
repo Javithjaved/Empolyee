@@ -25,7 +25,7 @@ const LoginPage = () => {
                                 <div className="row">
                                     <div className="col-1 hr"></div>
                                 </div>
-                                <p className="text3  mt-1">Campus Commune</p>
+                                <p className="text3  mt-1">Campus Commune</p>   
                             </div>
                         </div>
                     </div>
