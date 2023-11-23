@@ -11,7 +11,7 @@ const Header = () => {
                     <button className="navbar-toggler bg-light d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
-                    <p className="navbar-brand p-0" >
+                    <p className="navbar-brand p-0 mt-2" >
                         <img src={Photo} alt="Bootstrap" height="50" />
                     </p>
 
@@ -35,7 +35,7 @@ const Header = () => {
                         <div className="btn-group dropstart d-none d-sm-none d-md-block ">
                             <button type="button" className="btn  dropdown-toggle border-0" data-bs-toggle="dropdown" aria-expanded="false">
                                 <img src={Photo1} className="rounded-pill" alt="adminPhoto" width="30" height="30" />
-                                <span className="cname ms-2">admin</span>
+                                <span className="cname ms-2">   Admin</span>
                             </button>
                             <ul className="dropdown-menu">
                                 <li><p className="dropdown-item "><span className="textcolor1">Action</span></p></li>

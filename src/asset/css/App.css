@@ -176,11 +176,6 @@ td.name{
 .table-active{
   border-radius: 10px;
 }
-.icons{
-  vertical-align: baseline !important;
-  margin-left: 95%;
-}
-
 th{
   color: grey !important;
   font-weight: 350;

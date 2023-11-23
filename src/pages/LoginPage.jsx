@@ -31,15 +31,16 @@ const LoginPage = () => {
                     </div>
                     <div className="col-4">
                         <div className="loginbox ">
-                            <div className=" col-12 loginpage text-center  ">
+                            <div className=" col-12 loginpage text-center mb-2 ">
                                 <img className="logoimg2" src={Photo} alt="Logo" height="50" class="logoimg2" />
                             </div>
                             <div className="col-12 input p-5 pt-0">
+                                <form>
                                 <div className="row">
                                     <div className="col mt-2">
                                         <label>Email Address </label>
                                         <div class="col  mt-2 ">
-                                            <input type="email" className="form-control  rounded" id="inputEmail3" />
+                                            <input type="email" className="form-control  rounded" id="inputEmail3" required />
                                         </div>
                                     </div>
                                 </div>
@@ -47,7 +48,7 @@ const LoginPage = () => {
                                     <div className="col mt-4">
                                         <label>Password </label>
                                         <div class="col mt-2">
-                                            <input type="password" className="form-control  rounded " id="inputEmail3" />
+                                            <input type="password" className="form-control  rounded " id="inputEmail3" required />
                                         </div>
                                     </div>
                                 </div>
@@ -67,6 +68,7 @@ const LoginPage = () => {
                                         </div>
                                     </div>
                                 </div>
+                                </form>
                             </div>
                         </div>
                     </div>

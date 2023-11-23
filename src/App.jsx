@@ -6,7 +6,7 @@ import DashBoard from "../src/pages/DashBoard.jsx";
 import Empolyee from '../src/pages/EmpolyeeFrom.jsx';
 import Card from "../src/pages/EmployeeDetails.jsx";
 import NewUser from "../src/pages/NewUser.jsx";
-import TableDashBoradApi from "../src/pages/FTSReisterDashBoard.jsx";
+import FTSReisterDashBoard from "../src/pages/FTSReisterDashBoard.jsx";
 const App = () => {
   const [allValue, setAllValue] = useState(
     {
@@ -37,8 +37,8 @@ const App = () => {
           <Route path="/employee" element={<Empolyee setInputArr={setInputArr} inputArr={inputArr} setAllValue={setAllValue} allValue={allValue} />}></Route>
           <Route path="/dashboard" element={<DashBoard inputArr={inputArr} allValue={allValue} />}></Route>
           <Route path="/card" element={<Card setAllValue={setAllValue} allValue={allValue} />}></Route>
-          <Route path="/newuser" element={<NewUser />}></Route>
-          <Route path="/tabledashboradapi" element={<TableDashBoradApi />}></Route>
+          <Route path="/fts-new-user" element={<NewUser />}></Route>
+          <Route path="/table-fts-dashborad" element={<FTSReisterDashBoard />}></Route>
         </Routes>
       </BrowserRouter>
     </>
