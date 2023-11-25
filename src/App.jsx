@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginPage from "../src/pages/LoginPage.jsx";
 import DashBoard from "../src/pages/DashBoard.jsx";
-import Empolyee from '../src/pages/EmpolyeeFrom.jsx';
+import Empolyee from "../src/pages/EmpolyeeFrom.jsx";
 import Card from "../src/pages/EmployeeDetails.jsx";
 import NewUser from "../src/pages/NewUser.jsx";
 import FTSReisterDashBoard from "../src/pages/FTSReisterDashBoard.jsx";
