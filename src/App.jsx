@@ -37,7 +37,7 @@ const App = () => {
           <Route path="/employee" element={<Empolyee setInputArr={setInputArr} inputArr={inputArr} setAllValue={setAllValue} allValue={allValue} />}></Route>
           <Route path="/dashboard" element={<DashBoard inputArr={inputArr} allValue={allValue} />}></Route>
           <Route path="/card" element={<Card setAllValue={setAllValue} allValue={allValue} />}></Route>
-          <Route path="/fts-new-user" element={<NewUser />}></Route>
+          <Route path="/fts-new-user/:id" element={<NewUser />}></Route>
           <Route path="/table-fts-dashborad" element={<FTSReisterDashBoard />}></Route>
         </Routes>
       </BrowserRouter>

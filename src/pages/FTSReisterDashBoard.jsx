@@ -7,24 +7,31 @@ import axios from "axios";
 import { useEffect, useState } from 'react';
 import SideBar from '../components/Sidebar';
 import { Icon } from '@iconify/react';
+import { Link, useNavigate, useParams } from "react-router-dom";
 const FTSReisterDashBoard = () => {
+    const Navigate = useNavigate();
     const [data, setData] = useState([])
-    const handleList =()=>{
+    const handleList = () => {
         axios.get('https://fts-backend.onrender.com/admin/testing/getallusers?page=1&size=10')
-        .then(response => { setData(response.data.response.paginationOutput.results);})
-        .catch(err => { console.log(err);})
+            .then(response => { setData(response.data.response.paginationOutput.results); })
+            .catch(err => { console.log(err); })
     }
     const handleDelete = (id) => {
         axios.delete(`https://fts-backend.onrender.com/admin/testing/deleteUserById?id=${id}`)
             .then(response => { console.log("Delete successful", response); handleList() })
             .catch(err => { console.log('Error deleting data', err); })
     }
+    const handleUpDate = (id) => {
+        axios.put(`https://fts-backend.onrender.com/admin/testing/editUserById?id=${id}`)
+            .then(response => { console.log("Update successful", response); handleList() })
+            .catch(err => { console.log('Update data are error', err); })
+    }
     useEffect(() => {
         handleList()
-    },[]);
+    }, []);
     return (
         <Container fluid className='bg3 p-0'>
-            <Header/>
+            <Header />
             <Row>
                 <Col xs={2} className='sidebar1'>< SideBar /> </Col>
                 <Col xs={10} >
@@ -57,7 +64,7 @@ const FTSReisterDashBoard = () => {
                                                         <td>{user.email}</td>
                                                         <td>{user.phone_number}</td>
                                                         <td>{user.message}</td>
-                                                        <td><span className="i"><Icon className="i" icon="nimbus:edit" /></span><span className="vr ms-1"></span><span><Icon className="i ms-1" onClick={() => handleDelete(user.id)} icon="pajamas:remove" /></span><span className="vr ms-1"></span><Icon className="i ms-1" icon="bxs:show" /></td>
+                                                        <td><Link to={`/fts-new-user/:id${user.id}`}> <span className="i"><Icon className="i" onClick={() => handleUpDate(user.id)} icon="nimbus:edit" /></span></Link><span className="vr ms-1"></span><span><Icon className="i ms-1" onClick={() => handleDelete(user.id)} icon="pajamas:remove" /></span><span className="vr ms-1"></span><Icon className="i ms-1" icon="bxs:show" /></td>
                                                     </tr>
                                                 })
                                             }
