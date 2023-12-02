@@ -2,14 +2,14 @@ import { useNavigate } from "react-router-dom";
 import { Icon } from '@iconify/react';
 import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
-const DashBoard = ({ inputArr }) => {
+const DashBoard = ({ inputArr,active,setActive }) => {
     const Navigate = useNavigate();
     return (
-        <div>
+        <div>     
             <div className="bg3">
                 <Header />
                 <div className="row">
-                    <div className="col-2 sidebar1  "><Sidebar /></div>
+                    <div className="col-2 sidebar1  "><Sidebar active={active} setActive={setActive} /></div>
                     <div className="col-10 mt-2">
                         <div className="row">
                             <div className="col-12 "><h5 className="label2 ms-4 mt-2">Dashboard</h5>

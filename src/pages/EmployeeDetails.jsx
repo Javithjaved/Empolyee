@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
-const Card = ({ allValue }) => {
+const Card = ({ allValue,active,setActive }) => {
     const Navigate = useNavigate();
     const Country = ["India"]
     return (
@@ -10,7 +10,7 @@ const Card = ({ allValue }) => {
                 <div className="row">
                     <Header />
                     <div className="col-2 Sidebar1">
-                        <Sidebar />
+                        <Sidebar active={active} setActive={setActive} />
                     </div>
                     <div className='col-10 bg3'>
                         <div className="row mx-3 mt-3"><h5 className="label2 ">Empolyee Details &#10095; <span className="text ">Show Empolyee Details</span></h5></div>
@@ -99,7 +99,7 @@ const Card = ({ allValue }) => {
                                     </div>
                                     <div className='col-2'>
                                         <label className="Url" for='Url'>Photo :</label>
-                                        <img className='image' alt='' ></img>
+                                        <img className='image' src={allValue.url} alt='' ></img>
                                     </div>
                                 </div>
                                 <div className='row'>

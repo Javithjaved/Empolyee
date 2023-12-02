@@ -43,10 +43,7 @@ input::-webkit-inner-spin-button {
   float: right;
   color: gray;
 }
-.home:hover{
-  color:red;
-  cursor: pointer;
-}
+
 .userphoto{
   float: right;
 }
@@ -156,6 +153,7 @@ div.page1{
 }
 .i.unicode:hover{
   color: red;
+  
 }
 .label2,.unicode{
   color: gray;
@@ -225,11 +223,17 @@ tr td:last-child{
   float: inline-end;
 }
 .image{
-  background-image: url("../image/Photo1.jpg");
   width: 190px;
   height: 200px;
   background-position-x: -284px;
   background-position-y: -73px;
   border-radius: 150px;
   margin-left: 10px;
+}
+.home1{
+  color: red;
+  border: 0;
+  font-weight:600;
+  float: right;
+ 
 }

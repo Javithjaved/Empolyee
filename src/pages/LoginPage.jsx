@@ -49,7 +49,7 @@ const LoginPage = () => {
                                     }}
                                 >
                                     {({ handleSubmit, handleChange, values, errors }) => (
-                                        <Form onValidate onSubmit={handleSubmit} >
+                                        <Form  onSubmit={handleSubmit} >
                                             <div className="row">
                                                 <div className="col mt-2">
                                                     <label>Email Address </label>

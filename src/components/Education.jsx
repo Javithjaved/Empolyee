@@ -11,6 +11,7 @@ const Education = ({ allValue, setAllValue, setInputArr, inputArr }) => {
         e.preventDefault()
         setInputArr([...inputArr, allValue]);
         Navigate("/DashBoard");
+        console.log(allValue);
     }
     return (
         <>
@@ -50,7 +51,7 @@ const Education = ({ allValue, setAllValue, setInputArr, inputArr }) => {
                                 </div>
                                 <div className='col-4'>
                                     <label className="label" for='Url'>Enter Photo URL:</label>
-                                    <input type="img" name="url" value={allValue.url} onChange={(e) => handleChangeInput(e)} id="Url" className="form-control mt-2" pattern="src/" required />
+                                    <input type="img"  name="url" value={allValue.url} onChange={(e) => handleChangeInput(e)} id="Url" className="form-control mt-2" pattern="src/" required />
                                 </div>
                             </div>
                             <div className="About">

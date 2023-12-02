@@ -29,16 +29,18 @@ const App = () => {
       about: "",
     })
   const [inputArr, setInputArr] = useState([]);
+  const [active, setActive] = useState();  
   return (
     <>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<LoginPage />}></Route>
-          <Route path="/employee" element={<Empolyee setInputArr={setInputArr} inputArr={inputArr} setAllValue={setAllValue} allValue={allValue} />}></Route>
-          <Route path="/dashboard" element={<DashBoard inputArr={inputArr} allValue={allValue} />}></Route>
-          <Route path="/card" element={<Card setAllValue={setAllValue} allValue={allValue} />}></Route>
-          <Route path="/fts-new-user/:id" element={<NewUser />}></Route>
-          <Route path="/table-fts-dashborad" element={<FTSReisterDashBoard />}></Route>
+          <Route path="/employee" element={<Empolyee setInputArr={setInputArr} inputArr={inputArr} setAllValue={setAllValue} allValue={allValue} active={active} setActive={setActive} />}></Route>
+          <Route path="/dashboard" element={<DashBoard inputArr={inputArr} allValue={allValue} active={active} setActive={setActive} />}></Route>
+          <Route path="/card" element={<Card setAllValue={setAllValue} allValue={allValue} active={active} setActive={setActive} />}></Route>
+          <Route path="/fts-new-user" element={<NewUser  active={active} setActive={setActive} />}></Route>
+          <Route path="/fts-edit-user/:id" element={<NewUser  active={active} setActive={setActive} />}></Route>
+          <Route path="/table-fts-dashborad" element={<FTSReisterDashBoard active={active} setActive={setActive}  />}></Route>
         </Routes>
       </BrowserRouter>
     </>
