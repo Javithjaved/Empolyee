@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
-const Card = ({ allValue,active,setActive }) => {
+const Card = ({ allValue, active, setActive }) => {
     const Navigate = useNavigate();
     const Country = ["India"]
     return (

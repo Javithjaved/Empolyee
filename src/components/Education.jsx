@@ -51,7 +51,7 @@ const Education = ({ allValue, setAllValue, setInputArr, inputArr }) => {
                                 </div>
                                 <div className='col-4'>
                                     <label className="label" for='Url'>Enter Photo URL:</label>
-                                    <input type="img"  name="url" value={allValue.url} onChange={(e) => handleChangeInput(e)} id="Url" className="form-control mt-2" pattern="src/" required />
+                                    <input type="img" name="url" value={allValue.url} onChange={(e) => handleChangeInput(e)} id="Url" className="form-control mt-2" pattern="src/" required />
                                 </div>
                             </div>
                             <div className="About">
@@ -62,9 +62,8 @@ const Education = ({ allValue, setAllValue, setInputArr, inputArr }) => {
                             </div>
                             <hr></hr>
                             <div className="button text-end">
-                                <div className="col-12">
+                                <div className="col-12 ">
                                     <button type="button " onClick={() => Navigate('/Employee')} className="btn btn-danger submit me-3">Cancel</button>
-
                                     <button type="button " className="btn btn-danger submit  " onClick={(e) => handleChangeSubmit(e)}>Submit</button>
                                 </div>
                             </div>

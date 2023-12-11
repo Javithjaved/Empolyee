@@ -52,7 +52,7 @@ const Address = ({ allValue, setAllValue }) => {
                             <hr></hr>
                             <div className='details col-6'>
                                 <label className="label " for="street" >Street :</label>
-                                <input type="text" className="form-control mt-2" value={allValue.address} onChange={(e) => handleChangeInput(e)} id="street"  name='address' required ></input>
+                                <input type="text" className="form-control mt-2" value={allValue.address} onChange={(e) => handleChangeInput(e)} id="street" name='address' required ></input>
                             </div>
                             <div className='row'>
                                 <div className="col-3">

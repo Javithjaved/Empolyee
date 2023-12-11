@@ -17,7 +17,7 @@ const Header = () => {
 
                     <div className="collapse navbar-collapse  " id="navbarSupportedContent">
                         <div className="siz d-sm-block d-md-block d-lg-none d-xxl-none" >
-                           <Sidebar />
+                            <Sidebar />
                         </div>
                     </div>
                     <div>
@@ -29,7 +29,7 @@ const Header = () => {
                                 <li><p className="dropdown-item "><span className="textcolor1">Action</span></p></li>
                                 <li><p className="dropdown-item" ><span className="textcolor1">Another Action</span></p></li>
                                 <li><hr className="dropdown-divider" /></li>
-                                <li><p className="dropdown-item a2" ><span className="textcolor1 text-decoration-none" onClick={()=>Navigate("/")}>Sign Out</span></p></li>
+                                <li><p className="dropdown-item a2" ><span className="textcolor1 text-decoration-none" onClick={() => Navigate("/")}>Sign Out</span></p></li>
                             </ul>
                         </div>
                         <div className="btn-group dropstart d-none d-sm-none d-md-block ">

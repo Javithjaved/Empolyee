@@ -7,6 +7,7 @@ import Empolyee from "../src/pages/EmpolyeeFrom.jsx";
 import Card from "../src/pages/EmployeeDetails.jsx";
 import NewUser from "../src/pages/NewUser.jsx";
 import FTSReisterDashBoard from "../src/pages/FTSReisterDashBoard.jsx";
+import PrivateRoute from '../src/pages/PrivateRoute.jsx';
 const App = () => {
   const [allValue, setAllValue] = useState(
     {
@@ -29,7 +30,7 @@ const App = () => {
       about: "",
     })
   const [inputArr, setInputArr] = useState([]);
-  const [active, setActive] = useState();  
+  const [active, setActive] = useState();
   return (
     <>
       <BrowserRouter>
@@ -38,9 +39,10 @@ const App = () => {
           <Route path="/employee" element={<Empolyee setInputArr={setInputArr} inputArr={inputArr} setAllValue={setAllValue} allValue={allValue} active={active} setActive={setActive} />}></Route>
           <Route path="/dashboard" element={<DashBoard inputArr={inputArr} allValue={allValue} active={active} setActive={setActive} />}></Route>
           <Route path="/card" element={<Card setAllValue={setAllValue} allValue={allValue} active={active} setActive={setActive} />}></Route>
-          <Route path="/fts-new-user" element={<NewUser  active={active} setActive={setActive} />}></Route>
-          <Route path="/fts-edit-user/:id" element={<NewUser  active={active} setActive={setActive} />}></Route>
-          <Route path="/table-fts-dashborad" element={<FTSReisterDashBoard active={active} setActive={setActive}  />}></Route>
+          <Route path="/fts-new-user" element={<NewUser active={active} setActive={setActive}  />}></Route>
+          <Route path="/fts-edit-user/:id" element={<NewUser active={active} setActive={setActive} />}></Route>
+          <Route path="/table-fts-dashborad" element={<FTSReisterDashBoard active={active} setActive={setActive} />}></Route>
+          <Route path="/privateRotues" element={<PrivateRoute/>}></Route>
         </Routes>
       </BrowserRouter>
     </>
