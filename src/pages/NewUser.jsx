@@ -10,10 +10,12 @@ import Header from '../components/Header';
 import SideBar from '../components/Sidebar';
 import { Formik, Form } from 'formik';
 
-const NewUser = ({ active, setActive }) => {
+const NewUser = ({ active, setActive, isSignedIn, setIsSignedIn }) => {
+    const getapi = process.env.REACT_APP_GETAPI;
+    const postapi = process.env.REACT_APP_POSTAPI;
+    const putapi = process.env.REACT_APP_PUTAPI;
     const Navigate = useNavigate();
     const params = useParams();
-
     const schema = yup.object().shape({
         name: yup.string().required(),
         email: yup.string().required(),
@@ -32,7 +34,7 @@ const NewUser = ({ active, setActive }) => {
         if (params.id) {
             axios({
                 method: "get",
-                url: `https://fts-backend.onrender.com/admin/testing/getUserById?id=${params.id}`,
+                url: `${getapi}id=${params.id}`
             })
                 .then((response) => {
                     setPost(response.data.response.user);
@@ -41,13 +43,13 @@ const NewUser = ({ active, setActive }) => {
                     console.log(err);
                 });
         }
-    }, [params.id]);
+    }, [params.id, getapi]);
     const handleSubmit = async (values) => {
         try {
             if (!params.id) {
                 await axios({
                     method: "post",
-                    url: 'https://fts-backend.onrender.com/user/newRegistration',
+                    url: postapi,
                     data: values,
                 })
                 toast.success('Register Success...');
@@ -55,8 +57,8 @@ const NewUser = ({ active, setActive }) => {
             else {
                 await axios({
                     method: "put",
-                    url: `https://fts-backend.onrender.com/admin/testing/editUserById?id=${params.id}`,
-                    data: post,
+                    url: `${putapi}id=${params.id}`,
+                    data: values,
                 })
                 toast.success('Update Success...');
             }
@@ -71,7 +73,7 @@ const NewUser = ({ active, setActive }) => {
         <>
             <div className="NewUser">
                 <div className="head d-sm-block d-md-block d-lg-block d-xl-block d-xxl-block">
-                    <Header />
+                    <Header isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn} />
                 </div>
                 <Row>
                     <Col xs={2} className="sidebar1 d-none d-sm-none d-md-block d-lg-block d-xl-block d-xxl-block">
@@ -104,7 +106,7 @@ const NewUser = ({ active, setActive }) => {
                                             </label>
                                             <input
                                                 type="text"
-                                                className="form-control"
+                                                className="form-control mt-2"
                                                 id="formGroupExampleInput"
                                                 name="name"
                                                 value={values.name}
@@ -122,7 +124,7 @@ const NewUser = ({ active, setActive }) => {
                                             </label>
                                             <input
                                                 type="text"
-                                                className="form-control"
+                                                className="form-control mt-2"
                                                 id="formGroupExampleInput2"
                                                 name="email"
                                                 value={values.email}
@@ -143,7 +145,7 @@ const NewUser = ({ active, setActive }) => {
                                             </label>
                                             <input
                                                 type="text"
-                                                className="form-control"
+                                                className="form-control mt-2"
                                                 id="formGroupExampleInput"
                                                 name="phone_number"
                                                 value={values.phone_number}
@@ -159,7 +161,7 @@ const NewUser = ({ active, setActive }) => {
                                             <label htmlFor="formGroupExampleInput2" className="label">
                                                 Message
                                             </label>
-                                            <input
+                                            {/* <input
                                                 type="text"
                                                 className="form-control"
                                                 id="formGroupExampleInput2"
@@ -168,7 +170,12 @@ const NewUser = ({ active, setActive }) => {
                                                 onChange={handleChange}
                                                 onBlur={handleChange}
                                                 isInvalid={!!errors.message}
-                                            />
+                                            /> */}
+                                            <textarea className="form-control mt-2" id="formGroupExampleInput2" name="message"
+                                                value={values.message}
+                                                onChange={handleChange}
+                                                onBlur={handleChange}
+                                                isInvalid={!!errors.message} rows="3"></textarea>
                                         </div>
                                         <p type="invalid" className="text-danger">
                                             {errors.message}

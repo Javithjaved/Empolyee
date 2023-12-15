@@ -18,58 +18,35 @@ const FTSReisterDashBoard = ({ active, setActive }) => {
     const [data, setData] = useState([]);
     const [show, setShow] = useState(false);
     const [userdata, setUserData] = useState(null);
-    const page = 5;
     const [pageCount, setPageCount] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
     const [ShowDataDelete, setShowDataDelete] = useState(false);
-    axios.interceptors.request.use(
-        (config) => {
-            const accessToken = localStorage.getItem('accessToken');
-            if (accessToken) {
-                config.headers.Authorization = `Bearer ${accessToken}`;
-            }
-            return config;
-        },
-        (error) => {
-            return Promise.reject(error);
-        }
-    );
-    axios.interceptors.response.use(
-        (response) => {
-            if (response.status === 200) {
-                console.log(response.data);
-            }
-            return response;
-        },
-        (error) => {
-            if (error.response === 401) {
-                console.log('Error....');
-            }
-            return Promise.reject(error);
-        }
-    );
-
+    const deleteapi = process.env.REACT_APP_DELETEAPI;
+    const geturlapi=process.env.REACT_APP_GETALLAPI
+  //  console.log(geturlapi,'dcw');
     const handleList = (currentPage) => {
         axios({
-            method: 'get',
-            url: `https://fts-backend.onrender.com/admin/testing/getallusers?page=${currentPage}&size=${page}`,
+            method: "get",
+            url: geturlapi,
+            params: {
+                page: currentPage,
+                size: 5,
+            },
         })
             .then((response) => {
                 let totalPage = response.data.response.paginationOutput.totalResults;
                 setData(response.data.response.paginationOutput.results);
-                setPageCount(Math.ceil(totalPage / page));
+                setPageCount(Math.ceil(totalPage / 5));
             })
             .catch((err) => {
                 console.log(err);
             });
     };
-
     const handleDelete = (id, user) => {
         axios({
-            method: 'delete',
-            url: `https://fts-backend.onrender.com/admin/testing/deleteUserById?id=${id}`,
+            method: "delete",
+            url: `${deleteapi}id=${id}`
         })
-
             .then((response) => {
                 console.log('Delete successful', response);
                 handleList(currentPage);
@@ -86,20 +63,25 @@ const FTSReisterDashBoard = ({ active, setActive }) => {
         setCurrentPage(data.selected + 1);
         handleList(data.selected + 1);
     };
+
     const handleDeleteshow = (id) => {
         setShowDataDelete(true);
         const user = data.find((user) => user.id === id);
         setUserData(user);
     };
+
     const handleDeleteClose = () => setShowDataDelete(false);
+
     const handleShow = (user) => {
         setShow(true);
         setUserData(user);
     };
     useEffect(() => {
-        handleList();
+        handleList(currentPage);
     }, [currentPage]);
+
     const handleClose = () => setShow(false);
+
     return (
         <Container fluid className="bg3 p-0">
             <Header />
@@ -136,7 +118,7 @@ const FTSReisterDashBoard = ({ active, setActive }) => {
                                         <tbody>
                                             {Array.isArray(data) &&
                                                 data.map((user, index) => {
-                                                    const serialNumber = (currentPage - 1) * page + index + 1;
+                                                    const serialNumber = (currentPage - 1) * 5 + index + 1;
                                                     return (
                                                         <tr className="tablebox" key={index}>
                                                             <td>{serialNumber}</td>
@@ -170,7 +152,7 @@ const FTSReisterDashBoard = ({ active, setActive }) => {
                                                 })}
                                         </tbody>
                                     </Table>
-                                    <Modal show={ShowDataDelete} onHide={handleDeleteClose} className='Model' >
+                                    <Modal show={ShowDataDelete} onHide={handleDeleteClose} className="Model">
                                         <Modal.Header closeButton>
                                             <Modal.Title>Delete</Modal.Title>
                                         </Modal.Header>
@@ -192,25 +174,25 @@ const FTSReisterDashBoard = ({ active, setActive }) => {
                                             {userdata !== null ? (
                                                 <div className="row">
                                                     <div className="col-6">
-                                                        <label className="label" for="FirstName mt-1">
+                                                        <label className="label" htmlFor="FirstName mt-1">
                                                             Name :
                                                         </label>
                                                         <p className="firstname1 fw-medium mt-2 ">{userdata.name}</p>
                                                     </div>
                                                     <div className="col-6">
-                                                        <label className="label" for="LastName mt-1">
+                                                        <label className="label" htmlFor="LastName mt-1">
                                                             Email-ID :
                                                         </label>
                                                         <p className="lastname1 fw-medium mt-2">{userdata.email}</p>
                                                     </div>
                                                     <div className="col-6">
-                                                        <label className="label" for="FirstName mt-1">
+                                                        <label className="label" htmlFor="FirstName mt-1">
                                                             Mobile :
                                                         </label>
                                                         <p className="firstname1 fw-medium mt-2">{userdata.phone_number}</p>
                                                     </div>
                                                     <div className="col-6">
-                                                        <label className="label" for="LastName mt-1">
+                                                        <label className="label" htmlFor="LastName mt-1">
                                                             Message :
                                                         </label>
                                                         <p className="lastname1 fw-medium mt-2">{userdata.message}</p>
@@ -229,12 +211,12 @@ const FTSReisterDashBoard = ({ active, setActive }) => {
                                     </Modal>
                                     <div className="page">
                                         <ReactPaginate
-                                            nextLabel="next >>"
+                                            nextLabel="next >"
                                             onPageChange={handlePageClick}
                                             pageCount={pageCount}
-                                            previousLabel="<<previous"
-                                            breakLabel={"..."}
-                                            breakClassName={"page-link"}
+                                            previousLabel="< Previous"
+                                            breakLabel={'...'}
+                                            breakClassName={'page-link'}
                                             containerClassName={'pagination'}
                                             pageClassName={'page-item'}
                                             pageLinkClassName={'page-link'}

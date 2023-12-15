@@ -1,14 +1,14 @@
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
-const Card = ({ allValue, active, setActive }) => {
+const Card = ({ allValue, active, setActive,isSignedIn,setIsSignedIn  }) => {
     const Navigate = useNavigate();
     const Country = ["India"]
     return (
         <>
             <div className="bg-4">
                 <div className="row">
-                    <Header />
+                    <Header isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn} />
                     <div className="col-2 Sidebar1">
                         <Sidebar active={active} setActive={setActive} />
                     </div>

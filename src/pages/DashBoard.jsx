@@ -4,7 +4,7 @@ import { Icon } from '@iconify/react';
 import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
 
-const DashBoard = ({ inputArr,active,setActive }) => {
+const DashBoard = ({ inputArr,active,setActive, isSignedIn,setIsSignedIn }) => {
     const Navigate = useNavigate();
     const [dataDelete, setDataDelete] = useState(inputArr);
 
@@ -21,7 +21,7 @@ const DashBoard = ({ inputArr,active,setActive }) => {
     return (
         <div>
             <div className="bg3">
-                <Header />
+                <Header setIsSignedIn={setIsSignedIn} isSignedIn={isSignedIn} />
                 <div className="row">
                     <div className="col-2 sidebar1">
                         <Sidebar active={active} setActive={setActive} />

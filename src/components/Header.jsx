@@ -1,9 +1,7 @@
-import { useNavigate } from "react-router-dom";
 import Photo from "../asset/image/logo2.png"
 import Photo1 from "../asset/image/Photo1.jpg"
 import Sidebar from "./Sidebar";
 const Header = () => {
-    const Navigate = useNavigate();
     return (
         <>
             <nav className="navbar navbar-expand-lg box">
@@ -29,7 +27,7 @@ const Header = () => {
                                 <li><p className="dropdown-item "><span className="textcolor1">Action</span></p></li>
                                 <li><p className="dropdown-item" ><span className="textcolor1">Another Action</span></p></li>
                                 <li><hr className="dropdown-divider" /></li>
-                                <li><p className="dropdown-item a2" ><span className="textcolor1 text-decoration-none" onClick={() => Navigate("/")}>Sign Out</span></p></li>
+                                <li><p className="dropdown-item a2" ><span className="textcolor1 text-decoration-none" onClick={() =>{window.location.href="/";localStorage.removeItem('accessToken');localStorage.removeItem("refreshToken");}}>Sign Out</span></p></li>
                             </ul>
                         </div>
                         <div className="btn-group dropstart d-none d-sm-none d-md-block ">
@@ -41,7 +39,7 @@ const Header = () => {
                                 <li><p className="dropdown-item "><span className="textcolor1">Action</span></p></li>
                                 <li><p className="dropdown-item"><span className="textcolor1">Another Action</span></p></li>
                                 <li><hr className="dropdown-divider" /></li>
-                                <li><p className="dropdown-item a2" ><span className="textcolor1 text-decoration-none" onClick={() => Navigate("/")}>Sign Out</span></p></li>
+                                <li><p className="dropdown-item a2" ><span className="textcolor1 text-decoration-none" onClick={() =>{window.location.href="/";localStorage.removeItem('accessToken');localStorage.removeItem("refreshToken");}}>Sign Out</span></p></li>
                             </ul>
                         </div>
                     </div>

@@ -34,7 +34,6 @@ input::-webkit-inner-spin-button {
 
 .sidebar{
   background-color: white;
- 
 }
 
 .home{
@@ -65,10 +64,6 @@ input::-webkit-inner-spin-button {
 }
 .bg3{
   background-color: whitesmoke;
-  
-}
-.drop{
-  margin-left:-58px;
 }
 .background
 {
@@ -219,6 +214,7 @@ tr td:last-child{
 .sidebar1{
   background-color:white ;
   height: 100vh;
+ 
 }
 .page{
   float: inline-end;
