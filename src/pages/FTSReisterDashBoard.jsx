@@ -23,7 +23,6 @@ const FTSReisterDashBoard = ({ active, setActive }) => {
     const [ShowDataDelete, setShowDataDelete] = useState(false);
     const deleteapi = process.env.REACT_APP_DELETEAPI;
     const geturlapi=process.env.REACT_APP_GETALLAPI
-  //  console.log(geturlapi,'dcw');
     const handleList = (currentPage) => {
         axios({
             method: "get",
@@ -81,7 +80,6 @@ const FTSReisterDashBoard = ({ active, setActive }) => {
     }, [currentPage]);
 
     const handleClose = () => setShow(false);
-
     return (
         <Container fluid className="bg3 p-0">
             <Header />

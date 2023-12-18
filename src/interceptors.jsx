@@ -1,7 +1,6 @@
 import axios from "axios";
 const interceptors =()=>{
     const RefreshUrl=process.env.REACT_APP_REFREACSH_TOKEN; 
-       console.log(RefreshUrl,"hh");
        const refreshtoken =JSON.parse(localStorage.getItem("refreshToken"));
     axios.interceptors.request.use(
         (config) => {
@@ -18,7 +17,9 @@ const interceptors =()=>{
 axios.interceptors.response.use(
     (response) => {
         return response;
+       
     },
+    
     async (error) => {
         try 
         {
@@ -35,13 +36,13 @@ axios.interceptors.response.use(
                     // localStorage.removeItem("refreshToken");
                     // localStorage.removeItem("accessToken");
                     localStorage.setItem("refreshToken",JSON.stringify(response.data.response.refreshtoken));
-                     localStorage.setItem("accessToken",JSON.stringify(response.data.response.accessToken.accessToken));
+                     localStorage.setItem("accessToken",response.data.response.accessToken.accessToken);
                  })
                 .catch(err => { console.log(err,"ygyugvoyg"); })
         }
          if (error.response.status === 400) {
             console.log('Redirect to login page.');
-        // window.location.href="/"; 
+        window.location.href="/"; 
         
         }
     }

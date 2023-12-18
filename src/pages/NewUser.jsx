@@ -9,6 +9,7 @@ import Col from 'react-bootstrap/esm/Col';
 import Header from '../components/Header';
 import SideBar from '../components/Sidebar';
 import { Formik, Form } from 'formik';
+import {  product_actions } from '../redux/actions/actions';
 
 const NewUser = ({ active, setActive, isSignedIn, setIsSignedIn }) => {
     const getapi = process.env.REACT_APP_GETAPI;
@@ -22,7 +23,6 @@ const NewUser = ({ active, setActive, isSignedIn, setIsSignedIn }) => {
         phone_number: yup.string().required(),
         message: yup.string().required(),
     });
-
     const [post, setPost] = useState({
         name: '',
         email: '',
@@ -37,12 +37,14 @@ const NewUser = ({ active, setActive, isSignedIn, setIsSignedIn }) => {
                 url: `${getapi}id=${params.id}`
             })
                 .then((response) => {
-                    setPost(response.data.response.user);
+                    setPost(response.data.response.user);      
+                                 
                 })
                 .catch((err) => {
                     console.log(err);
                 });
         }
+
     }, [params.id, getapi]);
     const handleSubmit = async (values) => {
         try {
@@ -59,6 +61,7 @@ const NewUser = ({ active, setActive, isSignedIn, setIsSignedIn }) => {
                     method: "put",
                     url: `${putapi}id=${params.id}`,
                     data: values,
+                    
                 })
                 toast.success('Update Success...');
             }
@@ -69,6 +72,11 @@ const NewUser = ({ active, setActive, isSignedIn, setIsSignedIn }) => {
             console.error('Error:', error);
         }
     };
+    useEffect(()=>{
+        product_actions();
+
+    },[])
+   
     return (
         <>
             <div className="NewUser">
