@@ -237,3 +237,6 @@ tr td:last-child{
 .Model{
   margin-top: 10%;
 }
+.titel{
+  text-align: justify;
+}

@@ -1,12 +1,12 @@
 import { constants } from "../constants/constants.js";
 const initialState = {
   products: [],
-  products_list: [],
+  products_list:{},
 };
 const reducerslist = (state = initialState, { type, payload }) => {
   switch (type) {
     case constants.SET_PRODUCTS:
-      return { ...state, products: payload }
+      return { ...state, products : payload }
     case constants.SET_PRODUCTS_LIST:
       return { ...state, products_list: payload }
     default:
