@@ -89,8 +89,8 @@ const FTSReisterDashBoard = ({ active, setActive }) => {
                 </Col>
                 <Col xs={10}>
                     <div className="row">
-                        <div className="col-12 ">
-                            <h5 className="label2 ms-4 mt-2">
+                        <div className="col-12 p-3">
+                            <h5 className="label2 ms-4 ">
                                 FTS User Register &#10095;
                                 <span className="text "> FTS DashBoard User Register</span>
                             </h5>

@@ -1,8 +1,8 @@
 import axios from "axios";
 import { constants } from "../constants/constants.js";
-export const product_actions = async (dispatch) => {
+export const actionsDelete = async (dispatch) => {
     try {
-        const { data } = await axios.get("https://fakestoreapi.com/products");
+        const { data } = await axios.delete(`https://fakestoreapi.com/products/1`);
         dispatch({
             type: constants.SET_PRODUCTS,
             payload:  { data },
@@ -11,4 +11,5 @@ export const product_actions = async (dispatch) => {
     catch (error) {
         console.log(error);
     }
+
 }

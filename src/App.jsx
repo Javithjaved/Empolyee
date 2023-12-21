@@ -10,6 +10,8 @@ import FTSReisterDashBoard from "../src/pages/FTSReisterDashBoard.jsx";
 import PrivateRoutes from "./components/PrivateRoutes.jsx";
 import Header from "./components/Header.jsx";
 import ProductList from "../src/pages/ProductList.jsx";
+import ProductFrom from "./pages/ProductFrom.jsx";
+import ProductDetailslist from "./pages/ProductsDetailsList.jsx";
 const App = () => {
   const initialState = {
     firstName: "",
@@ -56,7 +58,9 @@ const App = () => {
           <Route path="/fts-new-user" element={<PrivateRoutes isSignedIn={isSignedIn}><NewUser active={active} setActive={setActive} isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn} /></PrivateRoutes>} />
           <Route path="/fts-edit-user/:id" element={<PrivateRoutes isSignedIn={isSignedIn}><NewUser active={active} setActive={setActive} isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn} /></PrivateRoutes>} />
           <Route path="/table-fts-dashborad" element={<PrivateRoutes isSignedIn={isSignedIn}><FTSReisterDashBoard active={active} setActive={setActive} isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn} /></PrivateRoutes>} />\
-          <Route path="/prodect-list" element={<PrivateRoutes isSignedIn={isSignedIn}><ProductList active={active} setActive={setActive} isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn} /></PrivateRoutes>} />
+          <Route path="//product-list" element={<PrivateRoutes isSignedIn={isSignedIn}><ProductList active={active} setActive={setActive} isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn} /></PrivateRoutes>} />
+          <Route path="/Product-From" element={<PrivateRoutes isSignedIn={isSignedIn}><ProductFrom active={active} setActive={setActive} isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn} /></PrivateRoutes>} />
+          <Route path="/Products-Details" element={<PrivateRoutes isSignedIn={isSignedIn}><ProductDetailslist active={active} setActive={setActive} isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn} /></PrivateRoutes>} />
         </Routes>
       </BrowserRouter>
 

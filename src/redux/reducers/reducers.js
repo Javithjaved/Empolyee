@@ -9,6 +9,8 @@ const reducerslist = (state = initialState, { type, payload }) => {
       return { ...state, products : payload }
     case constants.SET_PRODUCTS_LIST:
       return { ...state, products_list: payload }
+    case constants.SET_PRODUCTS_POST :
+      return {...state,products :payload}
     default:
       return state;
   }

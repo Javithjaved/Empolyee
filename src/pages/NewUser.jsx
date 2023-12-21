@@ -169,16 +169,7 @@ const NewUser = ({ active, setActive, isSignedIn, setIsSignedIn }) => {
                                             <label htmlFor="formGroupExampleInput2" className="label">
                                                 Message
                                             </label>
-                                            {/* <input
-                                                type="text"
-                                                className="form-control"
-                                                id="formGroupExampleInput2"
-                                                name="message"
-                                                value={values.message}
-                                                onChange={handleChange}
-                                                onBlur={handleChange}
-                                                isInvalid={!!errors.message}
-                                            /> */}
+                                    
                                             <textarea className="form-control mt-2" id="formGroupExampleInput2" name="message"
                                                 value={values.message}
                                                 onChange={handleChange}

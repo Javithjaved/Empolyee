@@ -5,7 +5,6 @@ import Education from '../components/Education';
 
 const Empolyee = ({ setInputArr, allValue, setAllValue, inputArr, active, setActive,isSignedIn,setIsSignedIn }) => {
   return (
-
     <>
       <div className='h-50'>
         <Personal

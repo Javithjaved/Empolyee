@@ -16,7 +16,7 @@ const Personal = ({ allValue, setAllValue, active, setActive,isSignedIn,setIsSig
 
                     <div className="row mx-2 mt-3"><h5 className="label2 "> User Profile &#10095; <span className="text ">Add User Profile</span></h5></div>
                     <hr className="hr3 ms-3 me-3" ></hr>
-                    <div className="col personal rounded-top-4 p-3 ms-3 me-3 mt-4 pb-0">
+                    <div className="col personal rounded-top-4 p-3 ms-3 me-3  pb-4">
                         <div className="row"><h5 className="header1  ">Personal Information</h5></div>
 
                         <div className="row">

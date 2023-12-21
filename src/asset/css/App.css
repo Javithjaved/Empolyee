@@ -2,6 +2,9 @@
   color:rgb(118, 117, 117);
   font-weight:450;
 }
+body{
+  overflow-x: hidden;
+}
 .submit{
   height: 50px;
   width: 150px;
@@ -237,6 +240,19 @@ tr td:last-child{
 .Model{
   margin-top: 10%;
 }
-.titel{
-  text-align: justify;
+.titel:hover{
+  color: blue;
+  cursor: pointer;
+}
+.img4{
+  height: 150px;
+  width: 150px;
+}
+.productsdetails:hover{
+ box-shadow: 0 3px 16px 0 rgba(33, 33, 33, 0.13); 
+}
+.productsdetails{
+  margin-left: 20px;
+  margin-bottom: 20px;
+  width: 290px;
 }
