@@ -2,11 +2,14 @@ import { Container, Col, Row, Button } from "react-bootstrap";
 import SideBar from "../components/Sidebar";
 import Header from "../components/Header";
 import Form from 'react-bootstrap/Form';
-import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { actionspostapi } from "../redux/actions/actionspostapi";
 import { useDispatch } from "react-redux";
+import { product_actions } from "../redux/actions/actions";
+import axios from "axios";
 const ProductFrom = ({ active, setActive }) => {
+    const RedexGetApi=process.env.REACT_APP_REDUXAPI;
     const Navigate = useNavigate();
     const dispatch = useDispatch()
     const [userInputValue, setuserInputValue] = useState({
@@ -17,13 +20,33 @@ const ProductFrom = ({ active, setActive }) => {
         Category: "",
         Description: "",
     })
+    const params =useParams();
     const handleChangeinputvalue = (e) => {
         setuserInputValue({ ...userInputValue, [e.target.name]: e.target.value })
     }
-    const handleSubmit = (e) => {
+    const handleSubmit = () => {
         Navigate("/product-list")
         actionspostapi(dispatch, userInputValue);
     }
+   
+        useEffect(() => {
+            if (!params.id) {
+                axios({
+                    method: "get",
+                    // url: `${getapi}id=${params.id}`
+                    url :`${RedexGetApi}id${params.id}`,                
+                })
+                    .then((response) => {
+                        setuserInputValue(response.data); 
+                        console.log(response.data);
+                                  
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                    });
+            }
+    
+        }, [params.id,RedexGetApi]);
     return (
         <Container fluid className="p-0">
             <Header />

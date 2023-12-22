@@ -46,7 +46,7 @@ const Address = ({ allValue, setAllValue }) => {
             <div className="container-fluid p-0">
                 <div className="row ">
                     <div className="col-2 sidebar"></div>
-                    <div className="col-10 bg3 ">
+                    <div className="col-10 bg1 ">
                         <div className="col personal ms-3 me-3 p-3 pb-0">
                             <div className="row"><h5 className="header1">Address Details</h5></div>
                             <hr></hr>

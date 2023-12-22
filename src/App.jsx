@@ -45,7 +45,7 @@ const App = () => {
   useEffect(() => {
     localStorage.setItem("IsSigedIn Status", isSignedIn);
   }, [isSignedIn]);
-
+  // const params=useParams();
   return (
     <>
       <BrowserRouter>
@@ -58,9 +58,10 @@ const App = () => {
           <Route path="/fts-new-user" element={<PrivateRoutes isSignedIn={isSignedIn}><NewUser active={active} setActive={setActive} isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn} /></PrivateRoutes>} />
           <Route path="/fts-edit-user/:id" element={<PrivateRoutes isSignedIn={isSignedIn}><NewUser active={active} setActive={setActive} isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn} /></PrivateRoutes>} />
           <Route path="/table-fts-dashborad" element={<PrivateRoutes isSignedIn={isSignedIn}><FTSReisterDashBoard active={active} setActive={setActive} isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn} /></PrivateRoutes>} />\
-          <Route path="//product-list" element={<PrivateRoutes isSignedIn={isSignedIn}><ProductList active={active} setActive={setActive} isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn} /></PrivateRoutes>} />
-          <Route path="/Product-From" element={<PrivateRoutes isSignedIn={isSignedIn}><ProductFrom active={active} setActive={setActive} isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn} /></PrivateRoutes>} />
-          <Route path="/Products-Details" element={<PrivateRoutes isSignedIn={isSignedIn}><ProductDetailslist active={active} setActive={setActive} isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn} /></PrivateRoutes>} />
+          <Route path="/product-list" element={<PrivateRoutes isSignedIn={isSignedIn}><ProductList active={active} setActive={setActive} isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn} /></PrivateRoutes>} />
+          <Route path="/product-form" element={<PrivateRoutes isSignedIn={isSignedIn}><ProductFrom active={active} setActive={setActive} isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn} /></PrivateRoutes>} />
+          <Route path="/product-form-edit/:id" element={<PrivateRoutes isSignedIn={isSignedIn}><ProductFrom active={active} setActive={setActive} isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn} /></PrivateRoutes>} />
+          <Route path={`/product-detail`} element={<PrivateRoutes isSignedIn={isSignedIn}><ProductDetailslist active={active} setActive={setActive} isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn} /></PrivateRoutes>} />
         </Routes>
       </BrowserRouter>
 

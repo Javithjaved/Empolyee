@@ -18,10 +18,10 @@ const NewUser = ({ active, setActive, isSignedIn, setIsSignedIn }) => {
     const Navigate = useNavigate();
     const params = useParams();
     const schema = yup.object().shape({
-        name: yup.string().required(),
-        email: yup.string().required(),
-        phone_number: yup.string().required(),
-        message: yup.string().required(),
+        name: yup.string().required("Name is a Required Field"),
+        email: yup.string().required("Email-ID is a Required Field"),
+        phone_number: yup.string().required("Mobile No is a Required Field"),
+        message: yup.string().required("Message is a Required Field"),
     });
     const [post, setPost] = useState({
         name: '',
@@ -74,7 +74,6 @@ const NewUser = ({ active, setActive, isSignedIn, setIsSignedIn }) => {
     };
     useEffect(()=>{
         product_actions();
-
     },[])
    
     return (

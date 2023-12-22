@@ -70,7 +70,6 @@ const FTSReisterDashBoard = ({ active, setActive }) => {
     };
 
     const handleDeleteClose = () => setShowDataDelete(false);
-
     const handleShow = (user) => {
         setShow(true);
         setUserData(user);

@@ -6,13 +6,12 @@ const Personal = ({ allValue, setAllValue, active, setActive,isSignedIn,setIsSig
         e.preventDefault();
         setAllValue({ ...allValue, [e.target.name]: e.target.value });
     }
-
     return (
         <div className='container-fluid p-0'>
             <Header isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn} />
             <div className='row'>
                 <div className="col-2"><Sidebar active={active} setActive={setActive} /></div> 
-                 <div className="col-10 bg3 ">
+                 <div className="col-10 bg1 ">
 
                     <div className="row mx-2 mt-3"><h5 className="label2 "> User Profile &#10095; <span className="text ">Add User Profile</span></h5></div>
                     <hr className="hr3 ms-3 me-3" ></hr>
