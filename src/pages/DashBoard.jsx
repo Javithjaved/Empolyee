@@ -3,8 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { Icon } from '@iconify/react';
 import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
+import { Button, Col } from "react-bootstrap";
 
-const DashBoard = ({ inputArr,active,setActive, isSignedIn,setIsSignedIn }) => {
+const DashBoard = ({ inputArr, active, setActive, isSignedIn, setIsSignedIn }) => {
     const Navigate = useNavigate();
     const [dataDelete, setDataDelete] = useState(inputArr);
 
@@ -20,35 +21,38 @@ const DashBoard = ({ inputArr,active,setActive, isSignedIn,setIsSignedIn }) => {
 
     return (
         <div>
-            <div className="bg3">
-                <Header setIsSignedIn={setIsSignedIn} isSignedIn={isSignedIn} />
+            <div className="bg1">
+                <Header isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn} />
                 <div className="row">
                     <div className="col-2 sidebar1">
                         <Sidebar active={active} setActive={setActive} />
                     </div>
+                  
                     <div className="col-10 mt-2">
                         <div className="row">
                             <div className="col-12">
-                                <h5 className="label2 ms-4 mt-2">Dashboard</h5>
-                                <hr className=" hr9 ms-2 me-3"></hr>
+                                <h5 className="text-danger ms-4 mt-2">DashBoard</h5>
+                                <hr className=" ms-4 me-3"></hr>
                             </div>
                         </div>
-                        <div className="bg4 me-3">
+                        <div className="bg4 p-4 pe-4 pt-0 me-3 ms-3 mt-3">
                             <div className="row">
-                                <div className="col-10 p-3 pb-0">
-                                    <p className="User p-2 pt-0 m-0 fs-4 ms-3">User-Data</p>
-                                </div>
-                                <div className="col-2 pt-3 pe-5 text-end">
-                                    <span className="add" onClick={() => Navigate("/Employee")}>
-                                        <Icon icon="zondicons:add-solid" />
-                                    </span>
-                                    <span className="add"> Add</span>
-                                </div>
+                                <Col xs={12}>
+                                    <div className="text-end mb-3 mt-2 ">
+                                        <span className="add">
+                                            <Button variant='danger' onClick={() => Navigate("/employee")}>
+                                                <div>
+                                                    <Icon icon="zondicons:add-solid" /> <span > Add </span>
+                                                </div>
+                                            </Button>
+                                        </span>
+                                    </div>
+                                </Col>
                             </div>
                             <div className="tb">
                                 <div className="row">
-                                    <div className="col p-4 pe-4 pt-0 me-2 ms-2">
-                                        <table className="table table-borderless table-spacing p-2 pt-0">
+                                    <div className="col">
+                                        <table className="table table-borderless table-spacing p-1 pt-0">
                                             <thead>
                                                 <tr className="tablebox">
                                                     <th scope="col">Name</th>

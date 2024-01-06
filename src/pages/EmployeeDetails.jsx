@@ -1,19 +1,19 @@
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
-const Card = ({ allValue, active, setActive,isSignedIn,setIsSignedIn  }) => {
+const Card = ({ allValue, active, setActive, isSignedIn, setIsSignedIn }) => {
     const Navigate = useNavigate();
     const Country = ["India"]
     return (
         <>
-            <div className="bg-4">
+            <div className="bg-3">
                 <div className="row">
                     <Header isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn} />
                     <div className="col-2 Sidebar1">
                         <Sidebar active={active} setActive={setActive} />
                     </div>
-                    <div className='col-10 bg3'>
-                        <div className="row mx-3 mt-3"><h5 className="label2 ">Empolyee Details &#10095; <span className="text ">Show Empolyee Details</span></h5></div>
+                    <div className='col-10 bg1 pb-4'>
+                        <div className="row mx-3 mt-3"><h5 className="pointer" onClick={()=>Navigate("/employee")}>Empolyee Details &#10095; <span className="text ">View Empolyee Details</span></h5></div>
                         <hr className='hr0  ms-4 me-5'></hr>
                         <div className='col-11 personal rounded-top-4 p-3 ms-4 me-4 mt-4 pb-0'>
                             <h4>Personal Information</h4>
@@ -21,7 +21,7 @@ const Card = ({ allValue, active, setActive,isSignedIn,setIsSignedIn  }) => {
                                 <div className="col-4">
                                     <label className='label' for='FirstName'>First Name :</label>
                                     <p className='firstname1 fw-medium '>{allValue.firstName}</p>
-                                </div>
+                                </div>  
                                 <div className="col-4">
                                     <label className='label' for='LastName'>Last Name :</label>
                                     <p className='lastname1 fw-medium'>{allValue.lastName}</p>
@@ -117,7 +117,7 @@ const Card = ({ allValue, active, setActive,isSignedIn,setIsSignedIn  }) => {
 
                                 <hr></hr>
 
-                                <div className='button text-end'>
+                                <div className='button text-end pb-2 pe-0'>
                                     <div className='col-12'>
                                         <button type="button " className="btn btn-danger Edit me-4" onClick={() => Navigate("/dashboard")}>Ok</button>
                                     </div>
@@ -128,6 +128,6 @@ const Card = ({ allValue, active, setActive,isSignedIn,setIsSignedIn  }) => {
                 </div>
             </div>
         </>
-    )
+    )   
 }
 export default Card;

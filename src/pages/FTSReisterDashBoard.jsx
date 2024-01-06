@@ -6,23 +6,26 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import axios from 'axios';
 import { Icon } from '@iconify/react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
 import SideBar from '../components/Sidebar';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
+import { Spinner } from 'react-bootstrap';
 
-const FTSReisterDashBoard = ({ active, setActive }) => {
+const FTSReisterDashBoard = ({ active, setActive, isSignedIn, setIsSignedIn }) => {
     const [data, setData] = useState([]);
     const [show, setShow] = useState(false);
+    const Navigate = useNavigate();
     const [userdata, setUserData] = useState(null);
     const [pageCount, setPageCount] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
     const [ShowDataDelete, setShowDataDelete] = useState(false);
+    const [showContent, setShowContent] = useState("");
     const deleteapi = process.env.REACT_APP_DELETEAPI;
-    const geturlapi=process.env.REACT_APP_GETALLAPI
+    const geturlapi = process.env.REACT_APP_GETALLAPI
     const handleList = (currentPage) => {
         axios({
             method: "get",
@@ -36,9 +39,15 @@ const FTSReisterDashBoard = ({ active, setActive }) => {
                 let totalPage = response.data.response.paginationOutput.totalResults;
                 setData(response.data.response.paginationOutput.results);
                 setPageCount(Math.ceil(totalPage / 5));
+                if (response.status === 200) {
+                    setShowContent("false")
+                }
             })
             .catch((err) => {
                 console.log(err);
+                if (err.status) {
+                    setShowContent("true")
+                }
             });
     };
     const handleDelete = (id, user) => {
@@ -77,11 +86,42 @@ const FTSReisterDashBoard = ({ active, setActive }) => {
     useEffect(() => {
         handleList(currentPage);
     }, [currentPage]);
-
     const handleClose = () => setShow(false);
+    if (!showContent) {
+        return (
+            <div>
+                <Header />
+                <Row>
+                    <Col xs={2}><SideBar active={active} setActive={setActive} /></Col>
+                    <Col xs={10}>
+                        <Row>
+                            <Col xs={12} className='backgroundcolor'>
+                                <h5 className="label2 ms-4 ">
+                                    <h5 className="text-danger mt-3"> FTS DashBoard</h5>
+                                </h5>
+                                <hr className=" hr9 ms-3 me-3"></hr>
+                                <div className='text-center mt-4'>
+                                    <Button variant="dark" className='Edit' >
+                                        <Spinner
+                                            animation="border"
+                                            size="sm"
+                                            role="status"
+                                            aria-hidden="true"
+                                        />
+                                        <span> Loading <Icon icon="svg-spinners:3-dots-bounce" /></span>
+                                    </Button>
+                                </div>
+                            </Col>
+                        </Row>
+                    </Col>
+                </Row>
+            </div>
+        );
+    }
     return (
-        <Container fluid className="bg3 p-0">
-            <Header />
+
+        <Container fluid className="bg1 p-0">
+            <Header isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn} />
             <Row>
                 <Col xs={2} className="sidebar1">
                     <SideBar active={active} setActive={setActive} />
@@ -90,17 +130,28 @@ const FTSReisterDashBoard = ({ active, setActive }) => {
                     <div className="row">
                         <div className="col-12 p-3">
                             <h5 className="label2 ms-4 ">
-                                FTS User Register &#10095;
-                                <span className="text "> FTS DashBoard User Register</span>
+                                <h5 className="text-danger"> FTS DashBoard</h5>
                             </h5>
                             <hr className=" hr9 ms-3 me-3"></hr>
-                            <ToastContainer />
                         </div>
                     </div>
                     <div className="bg4 me-3 ms-3">
                         <div className="tb">
                             <div className="row">
+                                <Col xs={12}>
+                                    <div className=" pe-4 text-end mb-3 mt-2 ">
+                                        <span className="add">
+                                            <Button variant='danger' onClick={() => Navigate("/fts-new-user")}>
+                                                <div>
+                                                    <Icon icon="zondicons:add-solid" /> <span > Add </span>
+                                                </div>
+                                            </Button>
+                                        </span>
+                                    </div>
+                                </Col>
+
                                 <div className="col p-4 pe-4 pt-0 me-3 ms-3">
+
                                     <Table className="table table-borderless table-spacing pt-0" responsive>
                                         <thead>
                                             <tr className="tablebox">
@@ -208,7 +259,7 @@ const FTSReisterDashBoard = ({ active, setActive }) => {
                                     </Modal>
                                     <div className="page">
                                         <ReactPaginate
-                                            nextLabel="next >"
+                                            nextLabel="Next >"
                                             onPageChange={handlePageClick}
                                             pageCount={pageCount}
                                             previousLabel="< Previous"
@@ -226,6 +277,7 @@ const FTSReisterDashBoard = ({ active, setActive }) => {
                                     </div>
                                 </div>
                             </div>
+                            <ToastContainer />
                         </div>
                     </div>
                 </Col>

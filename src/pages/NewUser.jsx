@@ -9,7 +9,6 @@ import Col from 'react-bootstrap/esm/Col';
 import Header from '../components/Header';
 import SideBar from '../components/Sidebar';
 import { Formik, Form } from 'formik';
-import {  product_actions } from '../redux/actions/actions';
 
 const NewUser = ({ active, setActive, isSignedIn, setIsSignedIn }) => {
     const getapi = process.env.REACT_APP_GETAPI;
@@ -29,7 +28,6 @@ const NewUser = ({ active, setActive, isSignedIn, setIsSignedIn }) => {
         phone_number: '',
         message: '',
     });
-
     useEffect(() => {
         if (params.id) {
             axios({
@@ -37,8 +35,8 @@ const NewUser = ({ active, setActive, isSignedIn, setIsSignedIn }) => {
                 url: `${getapi}id=${params.id}`
             })
                 .then((response) => {
-                    setPost(response.data.response.user);      
-                                 
+                    setPost(response.data.response.user);
+
                 })
                 .catch((err) => {
                     console.log(err);
@@ -61,7 +59,7 @@ const NewUser = ({ active, setActive, isSignedIn, setIsSignedIn }) => {
                     method: "put",
                     url: `${putapi}id=${params.id}`,
                     data: values,
-                    
+
                 })
                 toast.success('Update Success...');
             }
@@ -71,11 +69,9 @@ const NewUser = ({ active, setActive, isSignedIn, setIsSignedIn }) => {
         } catch (error) {
             console.error('Error:', error);
         }
+
     };
-    useEffect(()=>{
-        product_actions();
-    },[])
-   
+
     return (
         <>
             <div className="NewUser">
@@ -86,10 +82,10 @@ const NewUser = ({ active, setActive, isSignedIn, setIsSignedIn }) => {
                     <Col xs={2} className="sidebar1 d-none d-sm-none d-md-block d-lg-block d-xl-block d-xxl-block">
                         <SideBar active={active} setActive={setActive} />
                     </Col>
-                    <Col xs={10} className="bg3 p-3 pt-0">
+                    <Col xs={10} className="bg1 p-3 pt-0">
                         <div className="row mx-2 mt-3">
                             <h5 className="label2 ">
-                                FTS NewUser &#10095; <span className="text "> FTS{params.id ? ' Edit' : ' Add'} User</span>
+                              <span className='pointer' onClick={()=>Navigate("/table-fts-dashborad")}>FTS DashBoard </span>   &#10095; <span className="text "> FTS{params.id ? ' Edit' : ' Add'} User</span>
                             </h5>
                         </div>
                         <hr className="hr3 ms-3 me-3"></hr>
@@ -168,7 +164,7 @@ const NewUser = ({ active, setActive, isSignedIn, setIsSignedIn }) => {
                                             <label htmlFor="formGroupExampleInput2" className="label">
                                                 Message
                                             </label>
-                                    
+
                                             <textarea className="form-control mt-2" id="formGroupExampleInput2" name="message"
                                                 value={values.message}
                                                 onChange={handleChange}

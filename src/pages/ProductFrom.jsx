@@ -7,93 +7,127 @@ import { useEffect, useState } from "react";
 import { actionspostapi } from "../redux/actions/actionspostapi";
 import { useDispatch } from "react-redux";
 import { product_actions } from "../redux/actions/actions";
-import axios from "axios";
-const ProductFrom = ({ active, setActive }) => {
-    const RedexGetApi=process.env.REACT_APP_REDUXAPI;
+import { actionsPut } from "../redux/actions/actionsPut";
+import { toast, ToastContainer } from "react-toastify";
+const ProductFrom = ({ active, setActive, isSignedIn, setIsSignedIn }) => {
     const Navigate = useNavigate();
     const dispatch = useDispatch()
     const [userInputValue, setuserInputValue] = useState({
         title: "",
-        ProductsName: "",
-        Price: "",
-        Rating: "",
-        Category: "",
-        Description: "",
+        price: "",
+        rating: "",
+        category: "",
+        image: "",
+        description: "",
     })
-    const params =useParams();
+    const params = useParams();
     const handleChangeinputvalue = (e) => {
         setuserInputValue({ ...userInputValue, [e.target.name]: e.target.value })
     }
+    useEffect(() => {
+        if (params.id) {
+            product_actions(dispatch);
+        }
+    }, [dispatch, params.id])
     const handleSubmit = () => {
-        Navigate("/product-list")
-        actionspostapi(dispatch, userInputValue);
+        if (!params.id) {
+            actionspostapi(userInputValue)
+            toast.success("Add Your Products...")
+        }
+        else {
+            actionsPut(dispatch, userInputValue)
+            toast.success("Your products are Update...")
+        }
+        setTimeout(() => {
+            Navigate("/product-list")
+        }, 2000);
     }
-   
-        useEffect(() => {
-            if (!params.id) {
-                axios({
-                    method: "get",
-                    // url: `${getapi}id=${params.id}`
-                    url :`${RedexGetApi}id${params.id}`,                
-                })
-                    .then((response) => {
-                        setuserInputValue(response.data); 
-                        console.log(response.data);
-                                  
-                    })
-                    .catch((err) => {
-                        console.log(err);
-                    });
-            }
-    
-        }, [params.id,RedexGetApi]);
+    const Category = ["", "men's clothing", "jewelery", "women's clothing", "electronics"]
     return (
         <Container fluid className="p-0">
-            <Header />
+            <Header isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn} />
             <Row>
-                <Col xs={2}><SideBar active={active} setActive={setActive} /></Col>
-                <Col className="bg3 p-3">
-                    <h4 className="text ms-1 ">
+                <Col xs={2} className="sidebar1"><SideBar active={active} setActive={setActive} /></Col>
+                <Col className="bg1 p-3">
+                    <h4 className="text ms-3 ">
+                        <span className="pointer" onClick={() => Navigate("/product-list")}>Products List  &#10095; </span>
                         Products From
                     </h4>
-                    <div className="line me-3 ms-1">
+                    <div className="line me-3 ms-3">
                         <hr></hr>
                     </div>
-                    <Form.Group className="mb-3" >
-                        <Form.Label className="label">Title</Form.Label>
-                        <Form.Control type="text" name="title" value={userInputValue.title} onChange={(e) => handleChangeinputvalue(e)} />
-                    </Form.Group>
-                    <Form.Group className="mb-3" >
-                        <Form.Label className="label">Products Name</Form.Label>
-                        <Form.Control type="text" name="ProductsName" value={userInputValue.ProductsName} onChange={(e) => handleChangeinputvalue(e)} />
-                    </Form.Group>
-                    <Form.Group className="mb-3" >
-                        <Form.Label className="label">Price</Form.Label>
-                        <Form.Control type="text" name="Price" value={userInputValue.Price} onChange={(e) => handleChangeinputvalue(e)} />
-                    </Form.Group>
-                    <Form.Group className="mb-3" >
-                        <Form.Label className="label">Rating</Form.Label>
-                        <Form.Control type="text" name="Rating" value={userInputValue.Rating} onChange={(e) => handleChangeinputvalue(e)} />
-                    </Form.Group>
-                    <Form.Group className="mb-3" >
-                        <Form.Label className="label">Category  </Form.Label>
-                        <Form.Control type="text" name="Category" value={userInputValue.Category} onChange={(e) => handleChangeinputvalue(e)} />
-                    </Form.Group>
-                    <Form.Group className="mb-3" >
-                        <Form.Label className="label">Image</Form.Label>
-                        <Form.Control type="text" name="title" value={userInputValue.image} onChange={(e) => handleChangeinputvalue(e)} />
-                    </Form.Group>
-                    <Form.Group className="mb-3" >
-                        <Form.Label className="label">Description</Form.Label>
-                        <Form.Control as="textarea" rows={3} name="Description" value={userInputValue.Description} onChange={(e) => handleChangeinputvalue(e)} />
-                    </Form.Group>
-                    <div className="text-end mb-2 ">
-                        <Button className="btn-danger submit mx-2">Cancel</Button>
-                        <Button className="btn-danger submit" onClick={(e) => handleSubmit(e)}>Submit</Button>
+                    <div className="col personal rounded-4 p-3 ms-3 me-3 mt-4 pb-0">
+                        <Row>
+                            <Col>
+                                <Form.Group className="mb-3" >
+                                    <Form.Label className="label">Title</Form.Label>
+                                    <Form.Control type="text" name="title" value={userInputValue.title} onChange={(e) => handleChangeinputvalue(e)} />
+                                </Form.Group>
+                            </Col>
+                            <Col>
+                                <Form.Group className="mb-3" >
+                                    <Form.Label className="label">Price</Form.Label>
+                                    <Form.Control type="text" name="price" value={userInputValue.price} onChange={(e) => handleChangeinputvalue(e)} />
+                                </Form.Group>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col>
+                                <Form.Group className="mb-3" >
+                                    <Form.Label className="label">Rating</Form.Label>
+                                    <Form.Control type="text" name="rating" value={userInputValue.rating} onChange={(e) => handleChangeinputvalue(e)} />
+                                </Form.Group>
+                            </Col>
+                            <Col>
+                                <Form.Group className="mb-3" >
+                                    <Form.Label className="label">Category  </Form.Label>
+                                    <select className="form-select" id="Category" name="Category" onChange={(e) => handleChangeinputvalue(e)}>
+
+                                        {Category.map((Category) => {
+                                            return (
+                                                <option value={Category}>{Category}</option>
+                                            )
+                                        })
+                                        }
+                                    </select>
+                                </Form.Group>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col>
+                                <Form.Group className="mb-3 " >
+                                    <Form.Label className="label">Image</Form.Label>
+                                    <Form.Control type="text" name="image" value={userInputValue.image} onChange={(e) => handleChangeinputvalue(e)} />
+                                </Form.Group>
+                            </Col>
+
+                        </Row>
+                        <Col>
+                            <Form.Group className="mb-3" >
+                                <Form.Label className="label">Description</Form.Label>
+                                <Form.Control as="textarea" rows={3} name="description" value={userInputValue.description} onChange={(e) => handleChangeinputvalue(e)} />
+                            </Form.Group>
+                        </Col>
+                        <div className="text-end  pt-2 pb-3">
+                            <Button className="btn-danger Edit mx-2">Cancel</Button>
+                            <Button className="btn-danger Edit" onClick={(e) => handleSubmit(e)}>Submit</Button>
+                        </div>
                     </div>
                 </Col>
             </Row>
+            <ToastContainer
+                position="top-right"
+                autoClose={4000}
+                newestOnTop={false}
+                closeOnClick={false}
+                rtl={false}
+                pauseOnFocusLoss={false}
+                draggable
+                pauseOnHover
+                theme="light"
+            />
         </Container>
+
     );
 }
 export default ProductFrom;

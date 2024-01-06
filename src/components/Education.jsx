@@ -13,6 +13,7 @@ const Education = ({ allValue, setAllValue, setInputArr, inputArr }) => {
         Navigate("/DashBoard");
         console.log(allValue);
     }
+
     return (
         <>
             <div className="container-fluid p-0">
@@ -62,9 +63,9 @@ const Education = ({ allValue, setAllValue, setInputArr, inputArr }) => {
                             </div>
                             <hr></hr>
                             <div className="button text-end">
-                                <div className="col-12 ">
-                                    <button type="button " onClick={() => Navigate('/Employee')} className="btn btn-danger submit me-3">Cancel</button>
-                                    <button type="button " className="btn btn-danger submit  " onClick={(e) => handleChangeSubmit(e)}>Submit</button>
+                                <div className="col-12 pb-3 ">
+                                    <button type="button " onClick={() => Navigate('/Employee')} className="btn btn-danger Edit me-3">Cancel</button>
+                                    <button type="button " className="btn btn-danger Edit  " onClick={(e) => handleChangeSubmit(e)}>Submit</button>
                                 </div>
                             </div>
                         </div>

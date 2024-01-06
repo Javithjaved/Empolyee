@@ -6,5 +6,5 @@ const PrivateRoutes = ({ isSignedIn, children }) => {
     <Navigate to="/" replace={true} />
   );
 };
-
 export default PrivateRoutes;
+

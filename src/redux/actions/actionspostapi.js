@@ -1,18 +1,16 @@
 import axios from "axios";
 import { constants } from "../constants/constants.js";
- export const actionspostapi = async (dispatch,userInputValue) => {
-    console.log(userInputValue);
+ export const actionspostapi = async (userInputValue) => {
+    console.log(userInputValue,"ytyfyt  ");
     try {
-        const { data } = await axios.post(`https://fakestoreapi.com/products`,userInputValue);
-        dispatch({
+         const {data} = await axios.post(`https://fakestoreapi.com/products`,userInputValue);
+        return{
             type: constants.SET_PRODUCTS_POST,
-            payload:  { data },
-            
-        });
-        console.log("post",);
+              payload:  { data },
+        } 
     }
     catch (error) {
         console.log(error);
     }
 
-}
+}   

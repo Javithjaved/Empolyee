@@ -3,10 +3,9 @@ import "../asset/css/App.css"
 import Photo from "../asset/image/logo2.png"
 import { useState } from "react";
 import axios from "axios";
-const LoginPage = ({signIn}) => {
+const LoginPage = ({ setIsSignedIn }) => {
     const Navigate = useNavigate();
-const postUrl=process.env.REACT_APP_LOGINAPI;
-
+    const postUrl = process.env.REACT_APP_LOGINAPI;
     const [loginData, setLoginData] = useState({
         email: "",
         password: "",
@@ -15,21 +14,25 @@ const postUrl=process.env.REACT_APP_LOGINAPI;
         setLoginData({ ...loginData, [e.target.name]: e.target.value })
     }
     const handleLoginSubmit = () => {
-        signIn(true);
         axios({
             method: "post",
             url: postUrl,
             data: loginData,
         })
             .then(response => {
-                localStorage.setItem("accessToken",response.data.accesstoken.accessToken);
-                localStorage.setItem("refreshToken",JSON.stringify(response.data.refreshtoken));
+                localStorage.setItem("accessToken", response.data.accesstoken.accessToken);
+                localStorage.setItem("refreshToken", JSON.stringify(response.data.refreshtoken));
+                if (response.status === 200) {
+                    setIsSignedIn(true);
+                    Navigate("/dashboard")
+                }
             })
             .catch(err => {
                 console.log(err);
+                if (err.status === 400) {
+                    Navigate("/");
+                }
             })
-            
-        Navigate("/employee");
     }
     return (
         <>
