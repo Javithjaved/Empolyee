@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Icon } from '@iconify/react';
 import Sidebar from "../components/Sidebar";
@@ -14,32 +14,27 @@ const DashBoard = ({ inputArr, active, setActive, isSignedIn, setIsSignedIn }) =
         updatedData.splice(index, 1);
         setDataDelete(updatedData);
     };
-
-    useEffect(() => {
-        console.log("inputArr updated:", dataDelete);
-    }, [dataDelete]);
-
     return (
         <div>
-            <div className="bg1">
-                <Header isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn} />
-                <div className="row">
-                    <div className="col-2 sidebar1">
+            <div className="backgroundcolor">
+                <Header isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn} active={active} setActive={setActive} />
+                <div className="row w-100">
+                    <div className="col-2 sidebar1 d-none d-sm-block">
                         <Sidebar active={active} setActive={setActive} />
                     </div>
                   
-                    <div className="col-10 mt-2">
-                        <div className="row">
+                    <div className="col-sm-12 col-xl-10 col-lg-10 col-md-10  mt-2 p-0">
+                        <div className="row ">
                             <div className="col-12">
                                 <h5 className="text-danger ms-4 mt-2">DashBoard</h5>
                                 <hr className=" ms-4 me-3"></hr>
                             </div>
                         </div>
-                        <div className="bg4 p-4 pe-4 pt-0 me-3 ms-3 mt-3">
+                        <div className="bg4 ms-4">
                             <div className="row">
                                 <Col xs={12}>
-                                    <div className="text-end mb-3 mt-2 ">
-                                        <span className="add">
+                                    <div className="text-end mb-3 mt-2 me-3">
+                                        <span>
                                             <Button variant='danger' onClick={() => Navigate("/employee")}>
                                                 <div>
                                                     <Icon icon="zondicons:add-solid" /> <span > Add </span>
@@ -52,7 +47,7 @@ const DashBoard = ({ inputArr, active, setActive, isSignedIn, setIsSignedIn }) =
                             <div className="tb">
                                 <div className="row">
                                     <div className="col">
-                                        <table className="table table-borderless table-spacing p-1 pt-0">
+                                        <table className="table table-borderless table-spacing">
                                             <thead>
                                                 <tr className="tablebox">
                                                     <th scope="col">Name</th>
@@ -90,6 +85,7 @@ const DashBoard = ({ inputArr, active, setActive, isSignedIn, setIsSignedIn }) =
                 </div>
             </div>
         </div>
+
     );
 };
 

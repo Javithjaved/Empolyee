@@ -15,8 +15,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
 import { Spinner } from 'react-bootstrap';
 
-const FTSReisterDashBoard = ({ active, setActive, isSignedIn, setIsSignedIn }) => {
-    const [data, setData] = useState([]);
+const FTSReisterDashBoard = ({ active, setActive, isSignedIn, setIsSignedIn, inputArr }) => {
+    const [data, setData] = useState(inputArr);
     const [show, setShow] = useState(false);
     const Navigate = useNavigate();
     const [userdata, setUserData] = useState(null);
@@ -90,18 +90,18 @@ const FTSReisterDashBoard = ({ active, setActive, isSignedIn, setIsSignedIn }) =
     if (!showContent) {
         return (
             <div>
-                <Header />
+                <Header active={active} setActive={setActive}  />
                 <Row>
-                    <Col xs={2}><SideBar active={active} setActive={setActive} /></Col>
-                    <Col xs={10}>
-                        <Row>
-                            <Col xs={12} className='backgroundcolor'>
-                                <h5 className="label2 ms-4 ">
-                                    <h5 className="text-danger mt-3"> FTS DashBoard</h5>
+                    <Col className= 'col-2 d-none d-sm-block'><SideBar active={active} setActive={setActive} /></Col>
+                    <Col className='col-xl-10 col-sm-12 col-lg-10 col-md-10'>
+                        <Row className='w-100'>
+                            <Col xs={12} className='loaderbackground'>
+                                <h5 >
+                                    <h5 className="text-danger mt-3 ms-3"> FTS DashBoard</h5>
                                 </h5>
-                                <hr className=" hr9 ms-3 me-3"></hr>
+                                <hr ></hr>
                                 <div className='text-center mt-4'>
-                                    <Button variant="dark" className='Edit' >
+                                    <Button variant="dark" className='butten' >
                                         <Spinner
                                             animation="border"
                                             size="sm"
@@ -120,26 +120,22 @@ const FTSReisterDashBoard = ({ active, setActive, isSignedIn, setIsSignedIn }) =
     }
     return (
 
-        <Container fluid className="bg1 p-0">
+        <Container fluid className="backgroundcolor px-0">
             <Header isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn} />
             <Row>
-                <Col xs={2} className="sidebar1">
+                <Col xs={2} className="sidebar1 d-none d-sm-block">
                     <SideBar active={active} setActive={setActive} />
                 </Col>
-                <Col xs={10}>
-                    <div className="row">
-                        <div className="col-12 p-3">
-                            <h5 className="label2 ms-4 ">
-                                <h5 className="text-danger"> FTS DashBoard</h5>
+                <Col className='col-sm-12 col-xl-10 col-lg-10 col-md-10 pe-0'>
+                            <h5 className="label2  ">
+                                <h5 className="text-danger ms-3 mt-2"> FTS DashBoard</h5>
+                                <hr className='me-3 ms-3'></hr>
                             </h5>
-                            <hr className=" hr9 ms-3 me-3"></hr>
-                        </div>
-                    </div>
-                    <div className="bg4 me-3 ms-3">
+                    <div className="backgroundcolorinnerbox rounded-4 me-3 ms-3">
                         <div className="tb">
-                            <div className="row">
+                            <div className="row p-3">
                                 <Col xs={12}>
-                                    <div className=" pe-4 text-end mb-3 mt-2 ">
+                                    <div className=" text-end mb-3 mt-2 ">
                                         <span className="add">
                                             <Button variant='danger' onClick={() => Navigate("/fts-new-user")}>
                                                 <div>
@@ -150,7 +146,7 @@ const FTSReisterDashBoard = ({ active, setActive, isSignedIn, setIsSignedIn }) =
                                     </div>
                                 </Col>
 
-                                <div className="col p-4 pe-4 pt-0 me-3 ms-3">
+                                <div className="col">
 
                                     <Table className="table table-borderless table-spacing pt-0" responsive>
                                         <thead>
@@ -164,17 +160,16 @@ const FTSReisterDashBoard = ({ active, setActive, isSignedIn, setIsSignedIn }) =
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {Array.isArray(data) &&
-                                                data.map((user, index) => {
+                                            { data.map((user, index) => {
                                                     const serialNumber = (currentPage - 1) * 5 + index + 1;
                                                     return (
                                                         <tr className="tablebox" key={index}>
                                                             <td>{serialNumber}</td>
-                                                            <td className="name">{user.name}</td>
-                                                            <td>{user.email}</td>
-                                                            <td>{user.phone_number}</td>
-                                                            <td>{user.message}</td>
-                                                            <td>
+                                                            <td className="text-primary">{user.name }</td>
+                                                            <td>{user.email }</td>
+                                                            <td>{user.phone_number }</td>
+                                                            <td>{user.message } </td>
+                                                            <td className='pt-2' >
                                                                 <Link to={`/fts-edit-user/${user.id}`}>
                                                                     <span className="i">
                                                                         <Icon className="i" icon="nimbus:edit" />
@@ -184,7 +179,7 @@ const FTSReisterDashBoard = ({ active, setActive, isSignedIn, setIsSignedIn }) =
                                                                 <Link>
                                                                     <span>
                                                                         <Icon
-                                                                            className="i ms-1"
+                                                                            className="i "
                                                                             icon="pajamas:remove"
                                                                             onClick={() => handleDeleteshow(user.id)}
                                                                         />
@@ -192,14 +187,33 @@ const FTSReisterDashBoard = ({ active, setActive, isSignedIn, setIsSignedIn }) =
                                                                 </Link>
                                                                 <span className="vr ms-1"></span>
                                                                 <Link onClick={() => handleShow(user)}>
-                                                                    <Icon className="i ms-1" icon="bxs:show" />
+                                                                    <Icon className="i" icon="bxs:show" />
                                                                 </Link>
                                                             </td>
                                                         </tr>
                                                     );
+                                              
                                                 })}
                                         </tbody>
                                     </Table>
+                                        <div className='d-flex justify-content-end'>
+                                        <ReactPaginate 
+                                            nextLabel=">"
+                                            onPageChange={handlePageClick}
+                                            pageCount={pageCount}
+                                            previousLabel="<"
+                                            breakLabel={'...'}
+                                            breakClassName={'page-link'}
+                                            containerClassName={'pagination'}
+                                            pageClassName={'page-item'}
+                                            pageLinkClassName={'page-link'}
+                                            previousClassName={'page-item'}
+                                            previousLinkClassName={'page-link'}
+                                            nextClassName={'page-item'}
+                                            nextLinkClassName={'page-link'}
+                                            activeClassName={'active'}
+                                        />
+                                        </div>
                                     <Modal show={ShowDataDelete} onHide={handleDeleteClose} className="Model">
                                         <Modal.Header closeButton>
                                             <Modal.Title>Delete</Modal.Title>
@@ -257,24 +271,7 @@ const FTSReisterDashBoard = ({ active, setActive, isSignedIn, setIsSignedIn }) =
                                             </Button>
                                         </Modal.Footer>
                                     </Modal>
-                                    <div className="page">
-                                        <ReactPaginate
-                                            nextLabel="Next >"
-                                            onPageChange={handlePageClick}
-                                            pageCount={pageCount}
-                                            previousLabel="< Previous"
-                                            breakLabel={'...'}
-                                            breakClassName={'page-link'}
-                                            containerClassName={'pagination'}
-                                            pageClassName={'page-item'}
-                                            pageLinkClassName={'page-link'}
-                                            previousClassName={'page-item'}
-                                            previousLinkClassName={'page-link'}
-                                            nextClassName={'page-item'}
-                                            nextLinkClassName={'page-link'}
-                                            activeClassName={'active'}
-                                        />
-                                    </div>
+                                    
                                 </div>
                             </div>
                             <ToastContainer />

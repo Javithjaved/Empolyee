@@ -27,14 +27,14 @@ const interceptors = () => {
                         data: {
                             refreshToken: refreshtoken
                         },
-
+                    
                     })
                         .then(response => {
                             console.log(response.data.refreshtoken, "refreshToken");
                             localStorage.setItem("refreshToken", JSON.stringify(response.data.response.refreshtoken));
                             localStorage.setItem("accessToken", response.data.response.accessToken.accessToken);
                         })
-                        .catch(err => { console.log(err, "ygyugvoyg"); })
+                        .catch(err => console.log(err))
                 }
                 if (error.response.status === 400) {
                     console.log('Redirect to login page.');

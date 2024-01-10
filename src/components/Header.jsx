@@ -1,21 +1,21 @@
 import Photo from "../asset/image/logo2.png"
 import Photo1 from "../asset/image/Photo1.jpg"
 import Sidebar from "./Sidebar";
-const Header = ({ setIsSignedIn }) => {
+const Header = ({ setIsSignedIn,active,setActive }) => {
     return (
         <>
-            <nav className="navbar navbar-expand-lg box">
-                <div className="container-fluid ">
-                    <button className="navbar-toggler bg-light d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <nav className="navbar navbar-expand-lg box pt-0">
+                <div className="container-fluid p-0 ">
+                    <button className="navbar-toggler bg-light d-md-none p-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <p className="navbar-brand p-0 mt-2" >
-                        <img src={Photo} alt="Bootstrap" height="50" />
+                        <img className="logoimage" src={Photo} alt="Bootstrap" height="50" />
                     </p>
 
                     <div className="collapse navbar-collapse  " id="navbarSupportedContent">
                         <div className="siz d-sm-block d-md-block d-lg-none d-xxl-none" >
-                            <Sidebar />
+                            <Sidebar  active={active} setActive={setActive}/>
                         </div>
                     </div>
                     <div>

@@ -27,28 +27,26 @@ const ProductDetailslist = ({ active, setActive, isSignedIn, setIsSignedIn }) =>
   if (!singleproductListdata.products_list || !singleproductListdata.products_list.data || !showContent) {
     return (
       <div>
-        <Header />
-        <Row>
-          <Col xs={2}><SideBar active={active} setActive={setActive} /></Col>
-          <Col xs={10}>
-          <Col className='backgroundcolor'>
-            <h5 className="label2">
-              <span className='pointer p-2' onClick={() => Navigate("/table-fts-dashborad")}>Products List </span>   &#10095; <span className="text"> Product Detail</span>
-            </h5>
-            <hr></hr>
-            <div className='text-center mt-4'>
-              <Button variant="dark" className='Edit' >
-                <Spinner
-                  animation="border"
-                  size="sm"
-                  role="status"
-                  aria-hidden="true"
+        <Header active={active} setActive={setActive} />
+        <Row >
+          <Col className=' col-2 d-none d-xl-block'><SideBar active={active} setActive={setActive} /></Col>
+            <Col className='col-sm-12 col-xl-10 col-lg-10 loaderbackground   '>
+              <h5>
+                <span className='pointer ' onClick={() => Navigate("/product-list")}>Products List </span>   &#10095; <span className="text "> Product Detail</span>
+              </h5>
+              <hr></hr>
+              <div className='text-center mt-4'>
+                <Button variant="dark" className='butten' >
+                  <Spinner
+                    animation="border"
+                    size="sm"
+                    role="status"
+                    aria-hidden="true"
                   />
-                <span> Loading <Icon icon="svg-spinners:3-dots-bounce" /></span>
-              </Button>
-            </div>
-                  </Col>
-          </Col>
+                  <span> Loading <Icon icon="svg-spinners:3-dots-bounce" /></span>
+                </Button>
+              </div>
+            </Col>
         </Row>
       </div>
     );
@@ -63,7 +61,7 @@ const ProductDetailslist = ({ active, setActive, isSignedIn, setIsSignedIn }) =>
   };
   const handleCancel = () => {
     setShow(false);
-      toast.warning("Products Are Cancel");
+    toast.warning("Products Are Cancel");
   };
   const handleShow = () => {
     setShow(true);
@@ -72,47 +70,48 @@ const ProductDetailslist = ({ active, setActive, isSignedIn, setIsSignedIn }) =>
     <>
       <Header isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn} />
       <Container fluid>
-        <Row>
-          <Col xs={2}><SideBar active={active} setActive={setActive}/></Col>
+        <Row >
+          <Col className='d-none d-sm-block col-xl-2 col-md-2 sidebar1'><SideBar active={active} setActive={setActive} /></Col>
           <Col className='backgroundcolor'>
             <h5 className="label2 mt-2">
-              <span className='pointer' onClick={() => Navigate("/table-fts-dashborad")}>Products List </span>   &#10095; <span className="text"> Product Detail</span>
+              <span className='pointer' onClick={() => Navigate("")}>Products List </span>   &#10095; <span className="text"> Product Detail</span>
             </h5>
             <hr></hr>
-            <Row className='personal rounded-2 ms-2 p-2 me-2'>
-              <Col xs={4} >
-              <img src={image} alt="Loading...." className="img1" />
+            <Row className='backgroundcolorinnerbox rounded-2  p-2  col-xl-10 col-sm-12 col-md-10 col-lg-10 col-xl-10 w-100 ms-1   '>
+
+              <Col >
+                <img src={image} alt="Loading...." className="img1" />
               </Col>
               <Col className='ms-4'>
-              <Row>
-          <p className="fs-3 mt-5">{title}</p>
-          <p className="fs-6">
-            <span className="text">Price : ₹</span> {Math.round(price)}00
-          </p>
-          <p className="fs-6">
-            <span className="text">Rating :</span>
-            <Icon className="i" icon="emojione:star" /> {rating.rate} / 5
-          </p>
-          <p className="fs-6">
-            <span className="text">Category :</span> {category}
-          </p>
-          <p className="fs-6">
-            <span className="text">Count : </span>
-            {rating.count}
-          </p>
-          <p className="fs-6">
-            <span className="text">Description :</span>
-            {description}
-          </p>
-        </Row>
-        <Col className="text-center mt-2">
-          <Button variant="danger" className="Edit me-2" onClick={() => Navigate('/product-list')}>
-            Cancel
-          </Button>
-          <Button variant="danger " className="Edit" onClick={handleShow}>
-            Buy Now
-          </Button>
-        </Col>
+                <Row>
+                  <p className="fs-3 fs-2">{title}</p>
+                  <p className="fs-6">
+                    <span className="text">Price : ₹</span> {Math.round(price)}00
+                  </p>
+                  <p className="fs-6">
+                    <span className="text">Rating :</span>
+                    <Icon className="i" icon="emojione:star" /> {rating.rate} / 5
+                  </p>
+                  <p className="fs-6">
+                    <span className="text">Category :</span> {category}
+                  </p>
+                  <p className="fs-6">
+                    <span className="text">Count : </span>
+                    {rating.count}
+                  </p>
+                  <p className="fs-6">
+                    <span className="text">Description :</span>
+                    {description}
+                  </p>
+                </Row>
+                <Col className="text-center mt-2">
+                  <Button variant="danger" className="me-2" onClick={() => Navigate('/product-list')}>
+                    Cancel
+                  </Button>
+                  <Button variant="danger " onClick={handleShow}>
+                    Buy Now
+                  </Button>
+                </Col>
               </Col>
             </Row>
           </Col>

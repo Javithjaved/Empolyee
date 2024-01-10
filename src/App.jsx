@@ -11,6 +11,9 @@ import PrivateRoutes from "./components/PrivateRoutes.jsx";
 import ProductList from "../src/pages/ProductList.jsx";
 import ProductFrom from "./pages/ProductFrom.jsx";
 import ProductDetailslist from "./pages/ProductsDetailsList.jsx";
+import CommonComponents from "./components/CommonComponents.jsx";
+import DashBoardPage from "./pages/DashBoardPage.jsx";
+import Header from "./components/Header.jsx";
 const App = () => {
   const [allValue, setAllValue] = useState({
     firstName: "",
@@ -47,11 +50,14 @@ const App = () => {
           <Route path="/card" element={<PrivateRoutes isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn}  ><Card setAllValue={setAllValue} allValue={allValue} active={active} setActive={setActive} isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn} /></PrivateRoutes>} />
           <Route path="/fts-new-user" element={<PrivateRoutes isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn}><NewUser active={active} setActive={setActive} isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn} /></PrivateRoutes>} />
           <Route path="/fts-edit-user/:id" element={<PrivateRoutes isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn}><NewUser active={active} setActive={setActive} isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn} /></PrivateRoutes>} />
-          <Route path="/table-fts-dashborad" element={<PrivateRoutes isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn}><FTSReisterDashBoard active={active} setActive={setActive} isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn} /></PrivateRoutes>} />
+          <Route path="/table-fts-dashborad" element={<PrivateRoutes isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn}><FTSReisterDashBoard inputArr={inputArr} setInputArr={setInputArr} active={active} setActive={setActive} isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn} /></PrivateRoutes>} />
           <Route path="/product-list" element={<PrivateRoutes isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn}><ProductList active={active} setActive={setActive} isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn} /></PrivateRoutes>} />
           <Route path="/product-form" element={<PrivateRoutes isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn}><ProductFrom active={active} setActive={setActive} isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn} /></PrivateRoutes>} />
           <Route path={`/product-form-edit/:id`} element={<PrivateRoutes isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn}><ProductFrom active={active} setActive={setActive} isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn} /></PrivateRoutes>} />
           <Route path={`/product-detail/:id`} element={<PrivateRoutes isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn}><ProductDetailslist active={active} setActive={setActive} isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn} /></PrivateRoutes>} />
+          <Route path={`/common-components`} element={<PrivateRoutes isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn}><CommonComponents active={active} setActive={setActive} isSignedIn={isSignedIn} allValue={allValue} setAllValue={setAllValue} setIsSignedIn={setIsSignedIn} /></PrivateRoutes>} />
+          <Route path={`/dashboard-page`} element={<PrivateRoutes isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn}><DashBoardPage allValue={allValue} setAllValue={setAllValue} active={active} setActive={setActive} isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn} /></PrivateRoutes>} />
+          <Route  element={<PrivateRoutes isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn}><Header allValue={allValue} setAllValue={setAllValue} active={active} setActive={setActive} isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn} /></PrivateRoutes>} />
         </Routes>
       </BrowserRouter>
     </>

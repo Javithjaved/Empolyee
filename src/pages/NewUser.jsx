@@ -76,20 +76,20 @@ const NewUser = ({ active, setActive, isSignedIn, setIsSignedIn }) => {
         <>
             <div className="NewUser">
                 <div className="head d-sm-block d-md-block d-lg-block d-xl-block d-xxl-block">
-                    <Header isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn} />
+                    <Header isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn}  active={active} setActive={setActive} />
                 </div>
-                <Row>
-                    <Col xs={2} className="sidebar1 d-none d-sm-none d-md-block d-lg-block d-xl-block d-xxl-block">
+                <Row className='w-100'>
+                    <Col xs={2} className="sidebar1 d-none d-sm-none d-md-block d-lg-block d-xl-block d-xxl-block ">
                         <SideBar active={active} setActive={setActive} />
                     </Col>
-                    <Col xs={10} className="bg1 p-3 pt-0">
+                    <Col className="backgroundcolor pt-0 p-0 col-12-md w-100">
                         <div className="row mx-2 mt-3">
                             <h5 className="label2 ">
                               <span className='pointer' onClick={()=>Navigate("/table-fts-dashborad")}>FTS DashBoard </span>   &#10095; <span className="text "> FTS{params.id ? ' Edit' : ' Add'} User</span>
                             </h5>
                         </div>
                         <hr className="hr3 ms-3 me-3"></hr>
-                        <div className="col personal rounded-4 p-3 ms-3 me-3 mt-4 pb-0">
+                        <div className="col personal rounded-4 p-3 ms-4 me-3 mt-4 pb-0">
                             <Formik
                                 validationSchema={schema}
                                 onSubmit={handleSubmit}
@@ -175,11 +175,11 @@ const NewUser = ({ active, setActive, isSignedIn, setIsSignedIn }) => {
                                             {errors.message}
                                         </p>
                                         <hr></hr>
-                                        <div className="button text-end p-2">
-                                            <button type="button" className="Edit btn btn-danger mx-1" onClick={() => Navigate('/table-fts-dashborad')}>
+                                        <div className="text-end p-2">
+                                            <button type="button" className="button btn btn-danger mx-1" onClick={() => Navigate('/table-fts-dashborad')}>
                                                 Cancel
                                             </button>
-                                            <button type="submit" className="Edit btn btn-danger">
+                                            <button type="submit" className="button btn btn-danger">
                                                 {params.id ? 'Update' : 'Submit'}
                                             </button>
                                         </div>

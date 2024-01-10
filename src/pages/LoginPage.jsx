@@ -38,16 +38,16 @@ const LoginPage = ({ setIsSignedIn }) => {
         <>
             <div className="background">
                 <nav className="navbar ">
-                    <div className="container mt-3">
-                        <p className="navbar-brand" >
+                    <div className="container mt-3 ">
+                        <p className="navbar-brand d-none d-sm-block" >
                             <img className="logoimg" src={Photo} alt="Logo" height="50" />
                         </p>
                     </div>
                 </nav>
                 <div className="row">
-                    <div className="col-7">
+                    <div className=" col-md-6 col-xl-7 d-none d-sm-block ">
                         <div className="row">
-                            <div className="col text4 text-center ">
+                            <div className="col text4 text-center  ">
                                 <p className="text3">Share, Learn, Connect &</p>
                                 <div className="row">
                                     <div className="col-1 hr"></div>
@@ -60,12 +60,12 @@ const LoginPage = ({ setIsSignedIn }) => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-4">
-                        <div className="loginbox ">
+                    <div className="col-sm-7 col-md-6 col-lg-4 p-4">
+                        <div className="loginbox">
                             <div className=" col-12 loginpage text-center mb-2 ">
                                 <img className="logoimg2" src={Photo} alt="Logo" height="50" class="logoimg2" />
                             </div>
-                            <div className="col-12 input p-5 pt-0">
+                            <div className="col-12 input p-4 pt-0">
                                 <div className="row">
                                     <div className="col mt-2">
                                         <label>Email Address </label>

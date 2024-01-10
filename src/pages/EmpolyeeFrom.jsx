@@ -6,6 +6,7 @@ import Education from '../components/Education';
 const Empolyee = ({ setInputArr, allValue, setAllValue, inputArr, active, setActive, isSignedIn, setIsSignedIn }) => {
   return (
     <>
+    <div className='w-100'>
         <Personal
           setAllValue={setAllValue}
           allValue={allValue}
@@ -28,6 +29,7 @@ const Empolyee = ({ setInputArr, allValue, setAllValue, inputArr, active, setAct
           isSignedIn={isSignedIn}
           setIsSignedIn={setIsSignedIn}
         />
+        </div>
     </>
   );
 };

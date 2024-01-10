@@ -10,11 +10,6 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-
-.Edit{
-  height: 50px;
-  width: 150px;
-}
 .text{
   color: black;
   font-weight: 600;
@@ -22,7 +17,6 @@ input::-webkit-inner-spin-button {
 .country{
   width: 96%;
 }
-
 .box{
   background-color: black;
   color: white;
@@ -31,7 +25,6 @@ input::-webkit-inner-spin-button {
 .sidebar{
   background-color: white;
 }
-
 .home{
   border: 0;
   font-weight:600;
@@ -54,11 +47,8 @@ input::-webkit-inner-spin-button {
 .unicode{
   float: right;
 }
-.personal{
+.backgroundcolorinnerbox{
   background-color: white;
-}
-.bg1{
-  background-color: whitesmoke;
 }
 .background
 {
@@ -68,10 +58,6 @@ input::-webkit-inner-spin-button {
   height: 100vh !important;
   width: 100vw !important; 
   overflow: hidden;
-}
-.empolyee{
-  color: white;
-  
 }
 .loginbox{
   background-color:rgb(249, 249, 249);
@@ -103,11 +89,6 @@ input::-webkit-inner-spin-button {
 .red{
   color: red;
 }
-.companyname{
-  color:black ;
-  font-weight: 500;
-  font-size: medium;
-} 
 .text3{
   color: white;
   font-size:xx-large;
@@ -159,9 +140,6 @@ div.page1{
   border-radius: 10px;
 
 }
-td.name{
-  color: blue;
-}
 .table-active{
   border-radius: 10px;
 }
@@ -193,6 +171,7 @@ tr td:last-child{
   border-bottom-right-radius: 10px;
   border-top-right-radius: 10px;
   border-right: 1px solid #dbd8d8;
+  padding: 0px;
 
 }
 .table-spacing {
@@ -208,9 +187,6 @@ tr td:last-child{
 .sidebar1{
   background-color:white ;
   height: 100vh;
-}
-.page{
-  float: inline-end;
 }
 .image{
   width: 190px;
@@ -257,8 +233,8 @@ tr td:last-child{
   width: 300px;
 }
 .img1{
-  height: 450px;
-  width: 400px;
+  height: 307px;
+    width: 249px;
 }
 .iconsuccess{
   color: green;
@@ -269,6 +245,56 @@ tr td:last-child{
   cursor: pointer;
 }
 .backgroundcolor{
+  background-color: whitesmoke;
+}
+
+@media (min-width:576px)
+{
+  .img1{
+    height: 307px;
+    width: 249px;
+  }
+}
+@media (min-width:768px)
+{
+  .img1{
+    height: 307px;
+    width: 249px;
+  }
+}
+@media (min-width:992px)
+{
+  .img1{
+    height: 450px;
+    width: 400px;
+  }
+}
+@media (min-width:375px)
+{
+  .logoimage{
+    width: 164px;
+  }
+}
+@media(min-width:320px){
+  .logoimage{
+    width: 164px;
+  }
+}
+@media (min-width:768px )
+{
+  .logoimage{
+    height: 50px;
+    width: 243px;
+  }
+}
+@media (min-width:992px )
+{
+  .logoimage{
+    height: 55px;
+    width: 243px;
+  }
+}
+.loaderbackground{
   background-color: whitesmoke;
   height: 100vh;
 }

@@ -45,10 +45,10 @@ const ProductFrom = ({ active, setActive, isSignedIn, setIsSignedIn }) => {
     const Category = ["", "men's clothing", "jewelery", "women's clothing", "electronics"]
     return (
         <Container fluid className="p-0">
-            <Header isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn} />
+            <Header isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn} active={active} setActive={setActive} />
             <Row>
-                <Col xs={2} className="sidebar1"><SideBar active={active} setActive={setActive} /></Col>
-                <Col className="bg1 p-3">
+                <Col xl={2}  className="sidebar1 d-sm-none d-md-block d-none col-xl-2 col-md-2 col-lg-2" ><SideBar active={active} setActive={setActive} /></Col>
+                <Col xl={10} className="backgroundcolor p-0">
                     <h4 className="text ms-3 ">
                         <span className="pointer" onClick={() => Navigate("/product-list")}>Products List  &#10095; </span>
                         Products From
@@ -56,29 +56,29 @@ const ProductFrom = ({ active, setActive, isSignedIn, setIsSignedIn }) => {
                     <div className="line me-3 ms-3">
                         <hr></hr>
                     </div>
-                    <div className="col personal rounded-4 p-3 ms-3 me-3 mt-4 pb-0">
+                    <div className="col personal rounded-4 col-sm-12 col-xl-10 col-lg-10 col-md-10 p-3 ms-4">
                         <Row>
-                            <Col>
-                                <Form.Group className="mb-3" >
+                            <Col sm={12} md={6} xl={6}>
+                                <Form.Group  >
                                     <Form.Label className="label">Title</Form.Label>
                                     <Form.Control type="text" name="title" value={userInputValue.title} onChange={(e) => handleChangeinputvalue(e)} />
                                 </Form.Group>
                             </Col>
-                            <Col>
-                                <Form.Group className="mb-3" >
+                            <Col sm={12} md={6} xl={6}>
+                                <Form.Group  >
                                     <Form.Label className="label">Price</Form.Label>
                                     <Form.Control type="text" name="price" value={userInputValue.price} onChange={(e) => handleChangeinputvalue(e)} />
                                 </Form.Group>
                             </Col>
                         </Row>
                         <Row>
-                            <Col>
+                            <Col sm={12}>
                                 <Form.Group className="mb-3" >
                                     <Form.Label className="label">Rating</Form.Label>
                                     <Form.Control type="text" name="rating" value={userInputValue.rating} onChange={(e) => handleChangeinputvalue(e)} />
                                 </Form.Group>
                             </Col>
-                            <Col>
+                            <Col sm={12}>
                                 <Form.Group className="mb-3" >
                                     <Form.Label className="label">Category  </Form.Label>
                                     <select className="form-select" id="Category" name="Category" onChange={(e) => handleChangeinputvalue(e)}>
@@ -94,7 +94,7 @@ const ProductFrom = ({ active, setActive, isSignedIn, setIsSignedIn }) => {
                             </Col>
                         </Row>
                         <Row>
-                            <Col>
+                            <Col sm={12}>
                                 <Form.Group className="mb-3 " >
                                     <Form.Label className="label">Image</Form.Label>
                                     <Form.Control type="text" name="image" value={userInputValue.image} onChange={(e) => handleChangeinputvalue(e)} />
@@ -102,15 +102,15 @@ const ProductFrom = ({ active, setActive, isSignedIn, setIsSignedIn }) => {
                             </Col>
 
                         </Row>
-                        <Col>
+                        <Col sm={12}>
                             <Form.Group className="mb-3" >
                                 <Form.Label className="label">Description</Form.Label>
                                 <Form.Control as="textarea" rows={3} name="description" value={userInputValue.description} onChange={(e) => handleChangeinputvalue(e)} />
                             </Form.Group>
                         </Col>
                         <div className="text-end  pt-2 pb-3">
-                            <Button className="btn-danger Edit mx-2">Cancel</Button>
-                            <Button className="btn-danger Edit" onClick={(e) => handleSubmit(e)}>Submit</Button>
+                            <Button className="btn-danger button mx-2">Cancel</Button>
+                            <Button className="btn-danger button" onClick={(e) => handleSubmit(e)}>Submit</Button>
                         </div>
                     </div>
                 </Col>

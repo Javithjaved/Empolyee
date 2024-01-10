@@ -6,39 +6,39 @@ const Card = ({ allValue, active, setActive, isSignedIn, setIsSignedIn }) => {
     const Country = ["India"]
     return (
         <>
-            <div className="bg-3">
+            <div className="backgroundcolor">
                 <div className="row">
-                    <Header isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn} />
-                    <div className="col-2 Sidebar1">
+                    <Header isSignedIn={isSignedIn} setIsSignedIn={setIsSignedIn} active={active} setActive={setActive} />
+                    <div className="col-2 Sidebar1 d-none d-sm-block">
                         <Sidebar active={active} setActive={setActive} />
                     </div>
-                    <div className='col-10 bg1 pb-4'>
+                    <div className='col-sm-12 col-xl-10 col-md-10 col-lg-10 bg1 pb-4'>
                         <div className="row mx-3 mt-3"><h5 className="pointer" onClick={()=>Navigate("/employee")}>Empolyee Details &#10095; <span className="text ">View Empolyee Details</span></h5></div>
                         <hr className='hr0  ms-4 me-5'></hr>
                         <div className='col-11 personal rounded-top-4 p-3 ms-4 me-4 mt-4 pb-0'>
                             <h4>Personal Information</h4>
                             <div className="row">
-                                <div className="col-4">
+                                <div className="col-sm-6 col-md-4 col-xl-4 col-lg-4">
                                     <label className='label' for='FirstName'>First Name :</label>
                                     <p className='firstname1 fw-medium '>{allValue.firstName}</p>
                                 </div>  
-                                <div className="col-4">
+                                <div className="col-sm-6 col-md-4 col-xl-4 col-lg-4">
                                     <label className='label' for='LastName'>Last Name :</label>
                                     <p className='lastname1 fw-medium'>{allValue.lastName}</p>
                                 </div>
                             </div>
                             <div className="row">
-                                <div className="col-4">
+                                <div className="col-sm-6 col-md-4 col-xl-4 col-lg-4">
                                     <label className='label' for='Email-Id'>Email-ID :</label>
                                     <p className='email1 fw-medium'>{allValue.emailId}</p>
                                 </div>
-                                <div className="col-6">
+                                <div className="col-sm-6 col-md-4 col-xl-4 col-lg-4">
                                     <label className='label' for='Mobile No'>Mobile No :</label>
                                     <p className='mobile1 fw-medium'>{allValue.mobile}</p>
                                 </div>
                             </div>
                             <div className='row'>
-                                <div className='col-4'>
+                                <div className='col-sm-6 col-md-4 col-xl-4 col-lg-4'>
                                     <div className="gender">
                                         <div className="gendername">
                                             <label className='label' for='gender'>Gender :</label>
@@ -117,9 +117,9 @@ const Card = ({ allValue, active, setActive, isSignedIn, setIsSignedIn }) => {
 
                                 <hr></hr>
 
-                                <div className='button text-end pb-2 pe-0'>
+                                <div className=' text-end pb-2 pe-0'>
                                     <div className='col-12'>
-                                        <button type="button " className="btn btn-danger Edit me-4" onClick={() => Navigate("/dashboard")}>Ok</button>
+                                        <button type="button " className="btn btn-danger button me-4" onClick={() => Navigate("/dashboard")}>Ok</button>
                                     </div>
                                 </div>
                             </div>
